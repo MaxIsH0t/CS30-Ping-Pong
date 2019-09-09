@@ -12,12 +12,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/PingPong.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/PingPong.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/Rect1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/util/DrawUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/util/DrawUtils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/PingPong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/PingPong.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/gui/MainPingPongGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/gui/MainPingPongGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/gui/Rect1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/util/DrawUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/util/DrawUtils.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +38,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1QTKDmcRnAIA5CNfMdHlBzQ82Fw" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
