@@ -1,5 +1,6 @@
 package me.maxish0t.pingpong.gui;
 
+import me.maxish0t.pingpong.util.DrawUtils;
 import me.maxish0t.pingpong.util.PingPongUtils;
 
 import javax.swing.*;
@@ -14,16 +15,16 @@ public class MainPingPongGUI extends JFrame
     public MainPingPongGUI()
     {
         setTitle(GUI_TITLE);
-
-        JFrame jFrame = new JFrame(PingPongUtils.GAME_NAME);
-        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jFrame.setSize(GUI_WIDTH, GUI_HEIGHT);
-
-        // Sets the GUI in the middle of the monitor
-        jFrame.setLocationRelativeTo(null);
-
-        jFrame.setVisible(true);
+        setSize(GUI_WIDTH, GUI_HEIGHT);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         PingPongUtils.LOGGER.info("Game Size: " + GUI_WIDTH + " by " + GUI_HEIGHT);
+    }
+
+    public void paint(Graphics g)
+    {
+        //DrawUtils.drawRectangle(50, 50, 100, 100, Color.RED, g);
+        DrawUtils.drawCircle(getWidth() * 1/2, getHeight() * 1/2, 20, 20, Color.RED, g);
     }
 }
