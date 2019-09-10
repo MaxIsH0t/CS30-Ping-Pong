@@ -12,9 +12,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/PingPong.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/PingPong.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/util/DrawUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/util/DrawUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MoveBall.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/PingPong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/PingPong.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/gui/MainPingPongGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/gui/MainPingPongGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/gui/MoveBall.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +43,7 @@
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Pong" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">

@@ -1,12 +1,7 @@
 package me.maxish0t.pingpong;
 
 import me.maxish0t.pingpong.gui.MainPingPongGUI;
-import me.maxish0t.pingpong.gui.MoveBall;
 import me.maxish0t.pingpong.util.PingPongUtils;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
 
 import static com.sun.javafx.fxml.expression.Expression.add;
 
