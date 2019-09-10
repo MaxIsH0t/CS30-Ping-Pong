@@ -22,7 +22,7 @@ public class DrawUtils
     {
         Graphics2D g2d = (Graphics2D) graphics;
         Ellipse2D ball = new Ellipse2D.Double(x, y, ballSize, ballSize);
-        g2d.fill(ball);
         g2d.setColor(color);
+        g2d.fill(ball);
     }
 }
