@@ -3,6 +3,8 @@ package me.maxish0t.pingpong;
 import me.maxish0t.pingpong.gui.MainPingPongGUI;
 import me.maxish0t.pingpong.util.PingPongUtils;
 
+import javax.swing.*;
+
 import static com.sun.javafx.fxml.expression.Expression.add;
 
 /**
@@ -16,7 +18,14 @@ public class PingPong
         // Loads the main GUI for the Ping Pong Game
         MainPingPongGUI mainPingPongGUI = new MainPingPongGUI();
 
-        PingPongUtils.LOGGER.info("Ball Position >> X: " + MainPingPongGUI.CIRCLE_X + " | Y: " + MainPingPongGUI.CIRCLE_Y);
+        JFrame frm = new JFrame();
+        frm.setTitle("Pong");
+        frm.setContentPane(mainPingPongGUI);
+        frm.setSize(1200, 900);
+        frm.setResizable(false);
+        frm.setVisible(true);
+        frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         PingPongUtils.LOGGER.info(PingPongUtils.GAME_NAME + " has been loaded on version " + PingPongUtils.GAME_VERSION);
     }
 }
