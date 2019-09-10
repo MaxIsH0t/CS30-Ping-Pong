@@ -1,6 +1,7 @@
 package me.maxish0t.pingpong.util;
 
 import java.awt.*;
+import java.awt.geom.Ellipse2D;
 
 public class DrawUtils
 {
@@ -17,10 +18,11 @@ public class DrawUtils
     /**
      * Draws a Circle
      */
-    public static void drawCircle(int x, int y, int width, int height, Color color, Graphics graphics)
+    public static void drawCircle(double x, double y, double ballSize, Color color, Graphics graphics)
     {
-        graphics.setColor(color);
-        graphics.drawOval(x, y, width, height);
-        graphics.fillOval(x, y, width, height);
+        Graphics2D g2d = (Graphics2D) graphics;
+        Ellipse2D ball = new Ellipse2D.Double(x, y, ballSize, ballSize);
+        g2d.fill(ball);
+        g2d.setColor(color);
     }
 }

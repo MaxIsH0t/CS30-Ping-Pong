@@ -3,20 +3,71 @@ package me.maxish0t.pingpong.gui;
 import me.maxish0t.pingpong.util.DrawUtils;
 import me.maxish0t.pingpong.util.PingPongUtils;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 import java.awt.geom.Ellipse2D;
-import java.util.Timer;
+import javax.swing.*;
 
 public class MainPingPongGUI extends JPanel implements KeyListener, ActionListener
 {
+    // screen height and width
+    private int height, width;
+
+    private Timer t = new Timer(5, this);
+    private boolean first;
+
+    // ball
+    private double ballX, ballY, velX = 1, velY = 1, ballSize = 20;
+
+    public MainPingPongGUI()
+    {
+        addKeyListener(this);
+        setFocusable(true);
+        setFocusTraversalKeysEnabled(false);
+        first = true;
+
+        t.setInitialDelay(100);
+        t.start();
+    }
+
+    @Override
+    protected void paintComponent(Graphics g)
+    {
+        super.paintComponent(g);
+
+        height = getHeight();
+        width = getWidth();
+
+        // initial positioning
+        if (first) {
+            ballX = width / 2 - ballSize / 2;
+            ballY = height / 2 - ballSize / 2;
+            first = false;
+        }
+
+        // ball
+        DrawUtils.drawCircle(ballX, ballY, ballSize, Color.RED, g);
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        // side walls
+        if (ballX < 0 || ballX > width - ballSize) {
+            velX = -velX;
+        }
+        // top / down walls
+        if (ballY < 0) {
+            velY = -velY;
+        }
+
+        if (ballY + ballSize > height) {
+            velY = -velY;
+        }
+
+        ballX += velX;
+        ballY += velY;
+
+        repaint();
     }
 
     @Override
