@@ -67,11 +67,11 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         }
 
         // left pad
-        Rectangle2D bottomPad = new Rectangle(leftPadX + 1500, height / 2, padW, padH);
+        Rectangle2D bottomPad = new Rectangle(leftPadX + width * 1/30, height / 2, padW, padH);
         g2d.fill(bottomPad);
 
         // right pad
-        Rectangle2D topPad = new Rectangle(rightPadX + 70, height / 2, padW, padH);
+        Rectangle2D topPad = new Rectangle(rightPadX + width * 29/30, height / 2, padW, padH);
         g2d.fill(topPad);
 
         // ball
