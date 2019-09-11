@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
+import java.util.HashSet;
 import javax.swing.*;
 
 public class MainPingPongGUI extends JPanel implements KeyListener, ActionListener
@@ -18,6 +19,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     private Timer t = new Timer(5, this);
 
     private boolean first;
+    private HashSet<String> keys = new HashSet<String>();
 
     // ball
     private double ballX, ballY, velX = 3, velY = 3, ballSize = 20;
@@ -30,6 +32,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     public static int regularmodeX = 1600 / 2 - 120, regularmodeY = 50, darkModeX = 900 / 2 + 70, darkModeY= 10;
 
     // pad
+    private final int SPEED = 1;
     private int padH = 120, padW = 15;
     private int rightPadX, leftPadX;
     private int inset = 10;
@@ -71,7 +74,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         g2d.fill(bottomPad);
 
         // right pad
-        Rectangle2D topPad = new Rectangle(rightPadX + width * 29/30, height / 2, padW, padH);
+        Rectangle2D topPad = new Rectangle(width * 29/30, rightPadX + height / 2, padW, padH);
         g2d.fill(topPad);
 
         // ball
@@ -106,21 +109,49 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         ballX += velX;
         ballY += velY;
 
+        // pressed keys
+        if (keys.size() == 1) {
+            if (keys.contains("LEFT")) {
+                rightPadX -= (rightPadX > -420) ? SPEED : 0;
+            }
+            else if (keys.contains("RIGHT")) {
+                rightPadX += (rightPadX < height - padW) ? SPEED : 0;
+            }
+        }
+
         repaint();
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
-
+    public void keyTyped(KeyEvent e)
+    {
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
-
+    public void keyPressed(KeyEvent e)
+    {
+        int code = e.getKeyCode();
+        switch (code) {
+            case KeyEvent.VK_LEFT:
+                keys.add("LEFT");
+                break;
+            case KeyEvent.VK_RIGHT:
+                keys.add("RIGHT");
+                break;
+        }
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
-
+    public void keyReleased(KeyEvent e)
+    {
+        int code = e.getKeyCode();
+        switch (code) {
+            case KeyEvent.VK_LEFT:
+                keys.remove("LEFT");
+                break;
+            case KeyEvent.VK_RIGHT:
+                keys.remove("RIGHT");
+                break;
+        }
     }
 }
