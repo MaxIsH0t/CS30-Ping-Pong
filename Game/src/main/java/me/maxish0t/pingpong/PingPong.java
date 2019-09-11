@@ -19,7 +19,7 @@ public class PingPong
         MainPingPongGUI mainPingPongGUI = new MainPingPongGUI();
 
         JFrame frm = new JFrame();
-        frm.setTitle("Pong");
+        frm.setTitle("Ping Pong");
         frm.setContentPane(mainPingPongGUI);
         frm.setSize(1600, 900);
         frm.setResizable(false);
