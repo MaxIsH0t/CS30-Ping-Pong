@@ -21,9 +21,18 @@ public class PingPong
         JFrame frm = new JFrame();
         frm.setTitle("Pong");
         frm.setContentPane(mainPingPongGUI);
-        frm.setSize(1200, 900);
+        frm.setSize(1600, 900);
         frm.setResizable(false);
         frm.setVisible(true);
+
+        // regular button
+        mainPingPongGUI.regular.setBounds(mainPingPongGUI.regularmodeX,mainPingPongGUI.regularmodeY,95,30);
+        frm.add(mainPingPongGUI.regular);
+
+        // dark button
+        mainPingPongGUI.dark.setBounds(mainPingPongGUI.darkModeX,mainPingPongGUI.darkModeY,95,30);
+        frm.add(mainPingPongGUI.dark);
+
         frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         PingPongUtils.LOGGER.info(PingPongUtils.GAME_NAME + " has been loaded on version " + PingPongUtils.GAME_VERSION);

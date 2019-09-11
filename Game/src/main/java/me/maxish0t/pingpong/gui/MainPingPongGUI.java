@@ -19,7 +19,14 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     private boolean first;
 
     // ball
-    private double ballX, ballY, velX = 5, velY = 5, ballSize = 20;
+    private double ballX, ballY, velX = 3, velY = 3, ballSize = 20;
+
+    // buttons
+    public static JButton regular = new JButton("Regular Mode");
+    public static JButton dark = new JButton("Dark Mode");
+    private boolean regularMode;
+    private boolean darkMode;
+    public static int regularmodeX = 1600 / 2 - 120, regularmodeY = 50, darkModeX = 900 / 2 + 70, darkModeY= 10;
 
     public MainPingPongGUI()
     {
@@ -54,10 +61,17 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
 
         // ball
         DrawUtils.drawCircle(ballX, ballY, ballSize, Color.RED, g);
+
+        // box
+        //DrawUtils.drawRectangle(width / 2 - 120, 10, 100, 70, Color.WHITE, g);
+
+        // text
+        //DrawUtils.drawText("Regular Mode", width / 2 - 110, 50, Color.BLACK, g);
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e)
+    {
         // side walls
         if (ballX < 0 || ballX > width - ballSize) {
             velX = -velX;

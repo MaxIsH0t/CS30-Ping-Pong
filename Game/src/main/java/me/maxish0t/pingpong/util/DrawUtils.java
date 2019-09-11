@@ -25,4 +25,14 @@ public class DrawUtils
         g2d.setColor(color);
         g2d.fill(ball);
     }
+
+    /**
+     * Draws a text
+     */
+    public static void drawText(String string, int x, int y, Color color, Graphics graphics)
+    {
+        Graphics2D g2 = (Graphics2D) graphics;
+        g2.setColor(color);
+        g2.drawString(string, x, y);
+    }
 }
