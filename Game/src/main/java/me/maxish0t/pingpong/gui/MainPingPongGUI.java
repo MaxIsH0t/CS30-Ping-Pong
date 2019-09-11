@@ -13,17 +13,20 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     // screen height and width
     private int height, width;
 
+    // timer related
     private Timer t = new Timer(5, this);
+
     private boolean first;
 
     // ball
-    private double ballX, ballY, velX = 1, velY = 1, ballSize = 20;
+    private double ballX, ballY, velX = 5, velY = 5, ballSize = 20;
 
     public MainPingPongGUI()
     {
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
+
         first = true;
 
         t.setInitialDelay(100);
@@ -35,6 +38,10 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     {
         super.paintComponent(g);
 
+        // sets the background
+        setBackground(Color.BLACK);
+
+        // determines the height and width of the frame so the ball can't leave the screen
         height = getHeight();
         width = getWidth();
 
@@ -55,15 +62,18 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         if (ballX < 0 || ballX > width - ballSize) {
             velX = -velX;
         }
+
         // top / down walls
         if (ballY < 0) {
             velY = -velY;
         }
 
+        // bottom
         if (ballY + ballSize > height) {
             velY = -velY;
         }
 
+        // makes the ball move
         ballX += velX;
         ballY += velY;
 
