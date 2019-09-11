@@ -6,6 +6,7 @@ import me.maxish0t.pingpong.util.PingPongUtils;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.Ellipse2D;
+import java.awt.geom.Rectangle2D;
 import javax.swing.*;
 
 public class MainPingPongGUI extends JPanel implements KeyListener, ActionListener
@@ -28,6 +29,11 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     private boolean darkMode;
     public static int regularmodeX = 1600 / 2 - 120, regularmodeY = 50, darkModeX = 900 / 2 + 70, darkModeY= 10;
 
+    // pad
+    private int padH = 120, padW = 15;
+    private int rightPadX, leftPadX;
+    private int inset = 10;
+
     public MainPingPongGUI()
     {
         addKeyListener(this);
@@ -44,6 +50,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     protected void paintComponent(Graphics g)
     {
         super.paintComponent(g);
+        Graphics2D g2d = (Graphics2D) g;
 
         // sets the background
         setBackground(Color.BLACK);
@@ -58,6 +65,14 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             ballY = height / 2 - ballSize / 2;
             first = false;
         }
+
+        // left pad
+        Rectangle2D bottomPad = new Rectangle(leftPadX + 1500, height / 2, padW, padH);
+        g2d.fill(bottomPad);
+
+        // right pad
+        Rectangle2D topPad = new Rectangle(rightPadX + 70, height / 2, padW, padH);
+        g2d.fill(topPad);
 
         // ball
         DrawUtils.drawCircle(ballX, ballY, ballSize, Color.RED, g);
