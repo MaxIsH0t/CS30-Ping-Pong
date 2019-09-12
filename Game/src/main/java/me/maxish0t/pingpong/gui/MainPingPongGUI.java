@@ -32,7 +32,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     public static int regularmodeX = 1600 / 2 - 120, regularmodeY = 50, darkModeX = 900 / 2 + 70, darkModeY= 10;
 
     // pad
-    private final int SPEED = 1;
+    private final int SPEED = 5;
     private int padH = 120, padW = 15;
     private int rightPadX, leftPadX;
     private int inset = 10;
@@ -70,7 +70,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         }
 
         // left pad
-        Rectangle2D bottomPad = new Rectangle(leftPadX + width * 1/30, height / 2, padW, padH);
+        Rectangle2D bottomPad = new Rectangle(leftPadX + width * 1/30 - 10, height / 2, padW, padH);
         g2d.fill(bottomPad);
 
         // right pad
@@ -115,7 +115,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
                 rightPadX -= (rightPadX > -420) ? SPEED : 0;
             }
             else if (keys.contains("RIGHT")) {
-                rightPadX += (rightPadX < height - padW) ? SPEED : 0;
+                rightPadX += (rightPadX < +300) ? SPEED : 0;
             }
         }
 
