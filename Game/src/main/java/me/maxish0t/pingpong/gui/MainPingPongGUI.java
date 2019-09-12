@@ -37,6 +37,9 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     private int rightPadX, leftPadX;
     private int inset = 10;
 
+    // score
+    private int scoreLeftUser, scoreRightUser;
+
     public MainPingPongGUI()
     {
         addKeyListener(this);
@@ -85,24 +88,53 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
 
         // text
         //DrawUtils.drawText("Regular Mode", width / 2 - 110, 50, Color.BLACK, g);
+
+        // scores
+        String scoreLeft = "Left: " + new Integer(scoreLeftUser).toString();
+        String scoreRight = "Right: " + new Integer(scoreRightUser).toString();
+        DrawUtils.drawText(scoreLeft, 10, height / 2, Color.WHITE, g);
+        DrawUtils.drawText(scoreRight, width - 50, height / 2, Color.WHITE, g);
     }
 
     @Override
     public void actionPerformed(ActionEvent e)
     {
         // side walls
-        if (ballX < 0 || ballX > width - ballSize) {
+        if (ballX < 0 || ballX > width - ballSize)
+        {
             velX = -velX;
         }
 
         // top / down walls
-        if (ballY < 0) {
+        if (ballY < 0)
+        {
             velY = -velY;
         }
 
         // bottom
-        if (ballY + ballSize > height) {
+        if (ballY + ballSize > height)
+        {
             velY = -velY;
+        }
+
+        // wall left
+        if (ballX < 0)
+        {
+            ballX = width / 2 - ballSize / 2;
+            ballY = height / 2 - ballSize / 2;
+
+            ++ scoreRightUser;
+            System.out.println("Score 1 point for right user!");
+        }
+
+        // wall right
+        if (ballX + ballSize > width)
+        {
+            ballX = width / 2 - ballSize / 2;
+            ballY = height / 2 - ballSize / 2;
+
+            ++ scoreLeftUser;
+            System.out.println("Score 1 point for left user!");
         }
 
         // makes the ball move
