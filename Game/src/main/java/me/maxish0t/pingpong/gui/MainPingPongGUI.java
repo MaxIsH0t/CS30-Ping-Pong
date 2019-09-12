@@ -151,6 +151,15 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             }
         }
 
+        // AI
+        double delta = ballX - leftPadX;
+        if (delta > 0) {
+            leftPadX += (leftPadX < 300) ? SPEED : 0;
+        }
+        else if (delta < 0) {
+            leftPadX -= (leftPadX > 0) ? SPEED : 0;
+        }
+
         repaint();
     }
 
