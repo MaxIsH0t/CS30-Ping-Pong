@@ -73,7 +73,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         }
 
         // left pad
-        Rectangle2D bottomPad = new Rectangle(leftPadX + width * 1/30 - 10, height / 2, padW, padH);
+        Rectangle2D bottomPad = new Rectangle(width * 1/30 - 10, leftPadX + height / 2 - padH - 350, padW, padH);
         g2d.fill(bottomPad);
 
         // right pad
@@ -120,8 +120,8 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         // wall left
         if (ballX < 0)
         {
-            ballX = width / 2 - ballSize / 2;
-            ballY = height / 2 - ballSize / 2;
+            //ballX = width / 2 - ballSize / 2;
+            //ballY = height / 2 - ballSize / 2;
 
             ++ scoreRightUser;
             System.out.println("Score 1 point for right user!");
@@ -130,8 +130,8 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         // wall right
         if (ballX + ballSize > width)
         {
-            ballX = width / 2 - ballSize / 2;
-            ballY = height / 2 - ballSize / 2;
+            //ballX = width / 2 - ballSize / 2;
+            //ballY = height / 2 - ballSize / 2;
 
             ++ scoreLeftUser;
             System.out.println("Score 1 point for left user!");
@@ -152,21 +152,19 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         }
 
         // AI
-        double delta = ballX - leftPadX;
+        double delta = ballY - leftPadX;
         if (delta > 0) {
-            leftPadX += (leftPadX < 300) ? SPEED : 0;
+            leftPadX += (leftPadX < height - padW - 90) ? SPEED : 0;
         }
         else if (delta < 0) {
-            leftPadX -= (leftPadX > 0) ? SPEED : 0;
+            leftPadX -= (leftPadX > 50) ? SPEED : 0;
         }
 
         repaint();
     }
 
     @Override
-    public void keyTyped(KeyEvent e)
-    {
-    }
+    public void keyTyped(KeyEvent e) { }
 
     @Override
     public void keyPressed(KeyEvent e)
