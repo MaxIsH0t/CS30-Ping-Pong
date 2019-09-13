@@ -22,7 +22,8 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     private HashSet<String> keys = new HashSet<String>();
 
     // ball
-    private double ballX, ballY, velX = 3, velY = 3, ballSize = 20;
+    // vel x, y default = 3
+    private double ballX, ballY, velX = 7, velY = 7, ballSize = 20;
 
     // buttons
     public static JButton regular = new JButton("Regular Mode");
