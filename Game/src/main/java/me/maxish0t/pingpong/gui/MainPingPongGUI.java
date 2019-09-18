@@ -2,6 +2,7 @@ package me.maxish0t.pingpong.gui;
 
 import me.maxish0t.pingpong.util.DrawUtils;
 import me.maxish0t.pingpong.util.PingPongUtils;
+import me.maxish0t.pingpong.util.TextUtils;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -13,7 +14,7 @@ import javax.swing.*;
 public class MainPingPongGUI extends JPanel implements KeyListener, ActionListener
 {
     // screen height and width
-    private int height, width;
+    public static int height, width;
 
     // timer related
     private Timer t = new Timer(5, this);
@@ -93,8 +94,8 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         // scores
         String scoreLeft = "Left: " + new Integer(scoreLeftUser).toString();
         String scoreRight = "Right: " + new Integer(scoreRightUser).toString();
-        DrawUtils.drawText(scoreLeft, 10, height / 2, Color.WHITE, g);
-        DrawUtils.drawText(scoreRight, width - 50, height / 2, Color.WHITE, g);
+        TextUtils.drawText(scoreLeft, 10, height / 2, 20, Color.WHITE, g);
+        TextUtils.drawText(scoreRight, width - 70, height / 2, 20, Color.WHITE, g);
     }
 
     @Override
