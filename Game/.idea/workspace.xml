@@ -11,9 +11,7 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/util/DrawUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/util/DrawUtils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/gui/MainPingPongGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/gui/MainPingPongGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/util/DrawUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/util/DrawUtils.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +39,7 @@
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Pong" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />

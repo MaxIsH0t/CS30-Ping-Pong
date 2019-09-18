@@ -24,7 +24,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
 
     // ball
     // vel x, y default = 3
-    private double ballX, ballY, velX = 7, velY = 7, ballSize = 20;
+    private double ballX, ballY, velX = 3, velY = 3, ballSize = 20;
 
     // buttons
     public static JButton regular = new JButton("Regular Mode");
@@ -35,8 +35,9 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
 
     // pad
     private final int SPEED = 5;
-    private int padH = 120, padW = 15;
+    private int padH = 250, padW = 15;
     private int rightPadX, leftPadX;
+    private int rightPadY, leftPadY;
     private int inset = 10;
 
     // score
@@ -69,27 +70,24 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
 
         // initial positioning
         if (first) {
+            rightPadY = height / 2 - padW / 2;
+            leftPadY = rightPadY;
+            rightPadX = width * 29/30;
             ballX = width / 2 - ballSize / 2;
             ballY = height / 2 - ballSize / 2;
             first = false;
         }
 
         // left pad
-        Rectangle2D bottomPad = new Rectangle(width * 1/30 - 10, leftPadX + height / 2 - padH - 350, padW, padH);
+        Rectangle2D bottomPad = new Rectangle(width * 1/30 - 10, leftPadY - padH, padW, padH);
         g2d.fill(bottomPad);
 
         // right pad
-        Rectangle2D topPad = new Rectangle(width * 29/30, rightPadX + height / 2, padW, padH);
+        Rectangle2D topPad = new Rectangle(rightPadX, rightPadY, padW, padH);
         g2d.fill(topPad);
 
         // ball
         DrawUtils.drawCircle(ballX, ballY, ballSize, Color.RED, g);
-
-        // box
-        //DrawUtils.drawRectangle(width / 2 - 120, 10, 100, 70, Color.WHITE, g);
-
-        // text
-        //DrawUtils.drawText("Regular Mode", width / 2 - 110, 50, Color.BLACK, g);
 
         // scores
         String scoreLeft = "Left: " + new Integer(scoreLeftUser).toString();
@@ -101,6 +99,15 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     @Override
     public void actionPerformed(ActionEvent e)
     {
+        // top pad
+        if (ballX <= rightPadX - 200)
+        {
+            System.out.println("THIS WORKS!!!!!!!!!!!!!!!");
+        }
+
+            if (ballX + ballSize >= rightPadY && ballX <= rightPadY + padW)
+                velY = -velY;
+
         // side walls
         if (ballX < 0 || ballX > width - ballSize)
         {
@@ -146,20 +153,20 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         // pressed keys
         if (keys.size() == 1) {
             if (keys.contains("LEFT")) {
-                rightPadX -= (rightPadX > -420) ? SPEED : 0;
+                rightPadY -= (rightPadY > -420) ? SPEED : 0;
             }
             else if (keys.contains("RIGHT")) {
-                rightPadX += (rightPadX < +300) ? SPEED : 0;
+                rightPadY += (rightPadY < +300) ? SPEED : 0;
             }
         }
 
         // AI
-        double delta = ballY - leftPadX;
+        double delta = ballY - leftPadY;
         if (delta > 0) {
-            leftPadX += (leftPadX < height - padW - 90) ? SPEED : 0;
+            leftPadY += (leftPadY < height - padW - 90) ? SPEED : 0;
         }
         else if (delta < 0) {
-            leftPadX -= (leftPadX > 50) ? SPEED : 0;
+            leftPadY -= (leftPadY > 50) ? SPEED : 0;
         }
 
         repaint();
