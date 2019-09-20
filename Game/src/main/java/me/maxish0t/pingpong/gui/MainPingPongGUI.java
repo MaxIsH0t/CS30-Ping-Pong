@@ -11,7 +11,7 @@ import java.awt.geom.Rectangle2D;
 import java.util.HashSet;
 import javax.swing.*;
 
-public class MainPingPongGUI extends JPanel implements KeyListener, ActionListener, MouseListener
+public class MainPingPongGUI extends JPanel implements KeyListener, ActionListener
 {
     private int height, width;
     private Timer t = new Timer(5, this);
@@ -48,39 +48,34 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     @Override
     protected void paintComponent(Graphics g)
     {
+        super.paintComponent(g);
         height = getHeight();
         width = getWidth();
 
-        if (!startGame == false)
+        // initial positioning
+        if (first)
         {
-            // initial positioning
-            if (first)
-            {
-                bottomPadX = width / 2 - padW / 2;
-                topPadX = bottomPadX;
-                ballX = width / 2 - ballSize / 2;
-                ballY = height / 2 - ballSize / 2;
-                first = false;
-            }
-
-            // bottom pad
-            DrawUtils.drawRectangle(bottomPadX, height - padH - inset, padW, padH, Color.WHITE, g);
-
-            // top pad
-            DrawUtils.drawRectangle(topPadX, inset, padW, padH, Color.WHITE, g);
-
-            // ball
-            DrawUtils.drawCircle(ballX, ballY, ballSize, Color.WHITE, g);
-
-            // scores
-            String scoreB = "Bottom: " + new Integer(scoreBottom).toString();
-            String scoreT = "Top: " + new Integer(scoreTop).toString();
-            TextUtils.drawText(scoreB, 10, height / 2, 30, Color.WHITE, g);
-            TextUtils.drawText(scoreT, width - 90, height / 2, 30, Color.WHITE, g);
-        } else {
-            setBackground(Color.BLACK);
-            TextUtils.drawText("Start game by clicking anywhere!", height / 2, width / 2, 50, Color.BLACK, g);
+            bottomPadX = width / 2 - padW / 2;
+            topPadX = bottomPadX;
+            ballX = width / 2 - ballSize / 2;
+            ballY = height / 2 - ballSize / 2;
+            first = false;
         }
+
+        // bottom pad
+        DrawUtils.drawRectangle(bottomPadX, height - padH - inset, padW, padH, Color.WHITE, g);
+
+        // top pad
+        DrawUtils.drawRectangle(topPadX, inset, padW, padH, Color.WHITE, g);
+
+        // ball
+        DrawUtils.drawCircle(ballX, ballY, ballSize, Color.WHITE, g);
+
+        // scores
+        String scoreB = "Bottom: " + new Integer(scoreBottom).toString();
+        String scoreT = "Top: " + new Integer(scoreTop).toString();
+        TextUtils.drawText(scoreB, 10, height / 2, 30, Color.WHITE, g);
+        TextUtils.drawText(scoreT, width - 90, height / 2, 30, Color.WHITE, g);
     }
 
     @Override
@@ -120,12 +115,6 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             else if (keys.contains("RIGHT")) {
                 bottomPadX += (bottomPadX < width - padW) ? SPEED : 0;
             }
-        }
-
-        // start game
-        if (keys.contains(MouseEvent.MOUSE_CLICKED))
-        {
-            startGame = true;
         }
 
         // AI
@@ -168,26 +157,4 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
                 break;
         }
     }
-
-    @Override
-    public void mouseClicked(MouseEvent e) { }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        int mouse = e.getButton();
-        switch (mouse) {
-            case MouseEvent.MOUSE_CLICKED:
-                //keys.remove("MOUSE_CLICKED");
-                break;
-        }
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) { }
-
-    @Override
-    public void mouseEntered(MouseEvent e) { }
-
-    @Override
-    public void mouseExited(MouseEvent e) { }
 }
