@@ -26,12 +26,12 @@ public class PingPong
         frm.setVisible(true);
 
         // regular button
-        mainPingPongGUI.regular.setBounds(mainPingPongGUI.regularmodeX,mainPingPongGUI.regularmodeY,95,30);
-        frm.add(mainPingPongGUI.regular);
+        //mainPingPongGUI.regular.setBounds(mainPingPongGUI.regularmodeX,mainPingPongGUI.regularmodeY,95,30);
+        //frm.add(mainPingPongGUI.regular);
 
         // dark button
-        mainPingPongGUI.dark.setBounds(mainPingPongGUI.darkModeX,mainPingPongGUI.darkModeY,95,30);
-        frm.add(mainPingPongGUI.dark);
+        //mainPingPongGUI.dark.setBounds(mainPingPongGUI.darkModeX,mainPingPongGUI.darkModeY,95,30);
+        //frm.add(mainPingPongGUI.dark);
 
         frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
