@@ -15,7 +15,9 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
 
     // pad
     private final int SPEED = 6;
-    private int padH = 10, padW = 100, bottomPadX, topPadX, inset = 10;
+    private int padH = 10, padW = 100;
+    private int bottomPadX, topPadX;
+    private int inset = 10;
 
     // ball
     private double ballX, ballY, velX = 4, velY = 4, ballSize = 20;
