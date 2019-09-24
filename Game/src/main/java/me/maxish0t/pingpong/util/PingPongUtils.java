@@ -2,8 +2,7 @@ package me.maxish0t.pingpong.util;
 
 import java.util.logging.Logger;
 
-public class PingPongUtils
-{
+public class PingPongUtils {
     // LOGGER
     public static Logger LOGGER = Logger.getLogger("PingPong");
 

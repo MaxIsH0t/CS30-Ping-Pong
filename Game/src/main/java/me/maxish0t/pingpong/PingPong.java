@@ -5,16 +5,12 @@ import me.maxish0t.pingpong.util.PingPongUtils;
 
 import javax.swing.*;
 
-import static com.sun.javafx.fxml.expression.Expression.add;
-
 /**
  * Created By Mahmoud Saleh
  * Date Created On: Friday, September 6, 2019
  */
-public class PingPong
-{
-    public static void main(String[] args)
-    {
+public class PingPong {
+    public static void main(String[] args) {
         // Loads the main GUI for the Ping Pong Game
         MainPingPongGUI mainPingPongGUI = new MainPingPongGUI();
 
