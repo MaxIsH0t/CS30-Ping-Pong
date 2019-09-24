@@ -71,11 +71,18 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         // ball
         DrawUtils.drawCircle(ballX, ballY, ballSize, Color.WHITE, g);
 
+        // buttons
+        DrawUtils.drawExitButton("EXIT", 10, 100, 100, 50, Color.YELLOW, g, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
+
         // scores
         String scoreB = "Bottom: " + new Integer(scoreBottom).toString();
         String scoreT = "Top: " + new Integer(scoreTop).toString();
-        TextUtils.drawText(scoreB, 10, height / 2, 30, Color.WHITE, g);
-        TextUtils.drawText(scoreT, width - 90, height / 2, 30, Color.WHITE, g);
+        TextUtils.drawText(scoreB, width - 125, height / 2 + 20, 30, Color.WHITE, g);
+        TextUtils.drawText(scoreT, width - 105, height / 2 - 20, 30, Color.WHITE, g);
     }
 
     @Override
