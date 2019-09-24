@@ -35,6 +35,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
 
     @Override
     protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
         height = getHeight();
         width = getWidth();
 
@@ -66,7 +67,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         }, this);
 
         // START / END button
-        DrawUtils.drawButton("START", 10, height / 2 + 50, 100, 50, Color.YELLOW, g, new ActionListener() {
+        DrawUtils.drawButton("START", 10, height / 2 - 30, 100, 50, Color.YELLOW, g, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Program is currently starting....");
