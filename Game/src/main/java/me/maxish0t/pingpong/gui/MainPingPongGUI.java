@@ -72,11 +72,13 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         DrawUtils.drawCircle(ballX, ballY, ballSize, Color.WHITE, g);
 
         // buttons
-        DrawUtils.drawExitButton("EXIT", 10, 100, 100, 50, Color.YELLOW, g, new ActionListener() {
+        DrawUtils.drawButton("EXIT", 10, height / 2 + 50, 100, 50, Color.YELLOW, g, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                System.out.println("Program is currently exiting....");
+                System.exit(5);
             }
-        });
+        }, this);
 
         // scores
         String scoreB = "Bottom: " + new Integer(scoreBottom).toString();

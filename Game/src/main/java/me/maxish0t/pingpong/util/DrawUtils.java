@@ -32,15 +32,12 @@ public class DrawUtils
     /**
      * Draw a Button
      */
-    public static void drawExitButton(String buttonText, int x, int y, int width, int height, Color mainColor, Graphics graphics, ActionListener actionListener)
+    public static void drawButton(String buttonText, int x, int y, int width, int height, Color mainColor, Graphics graphics, ActionListener actionListener, JPanel jPanel)
     {
         JButton jButton = new JButton(buttonText);
         jButton.setBounds(x, y, width, height);
-        jButton.setLayout(null);
         jButton.setBackground(mainColor);
         jButton.addActionListener(actionListener);
-        jButton.update(graphics);
-        jButton.repaint();
-        jButton.setLocation(x, y);
+        jPanel.add(jButton);
     }
 }
