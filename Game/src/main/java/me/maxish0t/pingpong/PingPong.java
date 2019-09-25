@@ -10,6 +10,9 @@ import javax.swing.*;
  * Date Created On: Friday, September 6, 2019
  */
 public class PingPong {
+    public static final int displayWidth = 1600;
+    public static final int displayHeight = 900;
+
     public static void main(String[] args) {
         // Loads the main GUI for the Ping Pong Game
         MainPingPongGUI mainPingPongGUI = new MainPingPongGUI();
@@ -17,12 +20,19 @@ public class PingPong {
         JFrame frm = new JFrame();
         frm.setTitle("Ping Pong");
         frm.setContentPane(mainPingPongGUI);
-        frm.setSize(1600, 900);
+        frm.setSize(displayWidth, displayHeight);
         frm.setResizable(false);
         frm.setVisible(true);
+        screenSizeChecker();
 
         frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         PingPongUtils.LOGGER.info(PingPongUtils.GAME_NAME + " has been loaded on version " + PingPongUtils.GAME_VERSION);
+    }
+
+    public static void screenSizeChecker() {
+        String fullSize = "DisplayWidth= " + displayWidth + "; DisplayHeight= " + displayHeight;
+
+        System.out.println(fullSize);
     }
 }
