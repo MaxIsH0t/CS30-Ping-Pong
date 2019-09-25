@@ -32,7 +32,12 @@ public class PingPong {
 
     public static void screenSizeChecker() {
         String fullSize = "DisplayWidth= " + displayWidth + "; DisplayHeight= " + displayHeight;
-
         System.out.println(fullSize);
+        float checker = displayWidth / displayHeight;
+        if (displayWidth < 500) {
+            System.out.println("ERROR: This program will not work on this display, the width is too small.");
+        } else if (checker < 0.5625) {
+            System.out.println("ERROR: This program will not work on this display, the height is too small.");
+        }
     }
 }
