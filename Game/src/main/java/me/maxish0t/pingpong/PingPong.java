@@ -15,19 +15,23 @@ public class PingPong {
 
     public static void main(String[] args) {
         // Loads the main GUI for the Ping Pong Game
-        MainPingPongGUI mainPingPongGUI = new MainPingPongGUI();
+        mainGUI();
 
+        // Screen Size Checker
+        screenSizeChecker();
+
+        PingPongUtils.LOGGER.info(PingPongUtils.GAME_NAME + " has been loaded on version " + PingPongUtils.GAME_VERSION);
+    }
+
+    public static void mainGUI() {
+        MainPingPongGUI mainPingPongGUI = new MainPingPongGUI();
         JFrame frm = new JFrame();
         frm.setTitle("Ping Pong");
         frm.setContentPane(mainPingPongGUI);
         frm.setSize(displayWidth, displayHeight);
         frm.setResizable(false);
         frm.setVisible(true);
-        screenSizeChecker();
-
         frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        PingPongUtils.LOGGER.info(PingPongUtils.GAME_NAME + " has been loaded on version " + PingPongUtils.GAME_VERSION);
     }
 
     public static void screenSizeChecker() {
