@@ -7,6 +7,10 @@ import java.awt.geom.Ellipse2D;
 
 public class DrawUtils
 {
+    // Buttons
+    private static JButton exitButton = new JButton();
+    private static JButton startButton = new JButton();
+
     /**
      * Draws a Rectangle
      */
@@ -27,13 +31,26 @@ public class DrawUtils
     }
 
     /**
-     * Draw a Button
+     * Draw a Reset Button
      */
-    public static void drawButton(String buttonText, int x, int y, int width, int height, Color mainColor, Graphics graphics, ActionListener actionListener, JPanel jPanel) {
-        JButton jButton = new JButton(buttonText);
-        jButton.setBounds(x, y, width, height);
-        jButton.setBackground(mainColor);
-        jButton.addActionListener(actionListener);
-        jPanel.add(jButton);
+    public static void drawResetButton(String buttonText, int x, int y, int width, int height, Color mainColor, ActionListener actionListener, JPanel jPanel) {
+        startButton.setText(buttonText);
+        startButton.setBounds(x, y, width, height);
+        startButton.setLocation(x, y);
+        startButton.setBackground(mainColor);
+        startButton.addActionListener(actionListener);
+        jPanel.add(startButton);
+    }
+
+    /**
+     * Draw a Exit Button
+     */
+    public static void drawExitButton(String buttonText, int x, int y, int width, int height, Color mainColor, ActionListener actionListener, JPanel jPanel) {
+        exitButton.setText(buttonText);
+        exitButton.setBounds(x, y, width, height);
+        exitButton.setLocation(x, y);
+        exitButton.setBackground(mainColor);
+        exitButton.addActionListener(actionListener);
+        jPanel.add(exitButton);
     }
 }

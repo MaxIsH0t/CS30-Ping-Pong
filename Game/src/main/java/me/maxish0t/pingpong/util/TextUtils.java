@@ -3,7 +3,7 @@ package me.maxish0t.pingpong.util;
 import java.awt.*;
 
 public class TextUtils {
-    private static boolean debugString = false;
+    private static boolean debugString = true;
 
     /**
      * Draws a text
@@ -14,9 +14,9 @@ public class TextUtils {
         graphics.setFont(new Font("TimesRoman", Font.PLAIN, size));
         g2.drawString(string, x, y);
 
-        if (debugString == false) {
+        if (debugString == true) {
             System.out.println("String: " + string + " Size X: " + x + " Size Y: " + y + " Size: " + size + " Color: " + color);
-            debugString = true;
+            debugString = false;
         }
     }
 }

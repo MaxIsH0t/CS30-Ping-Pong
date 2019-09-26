@@ -40,8 +40,10 @@ public class PingPong {
         float checker = displayWidth / displayHeight;
         if (displayWidth < 500) {
             System.out.println("ERROR: This program will not work on this display, the width is too small.");
+            System.exit(5);
         } else if (checker < 0.5625) {
             System.out.println("ERROR: This program will not work on this display, the height is too small.");
+            System.exit(5);
         }
     }
 }

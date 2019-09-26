@@ -40,7 +40,6 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         super.paintComponent(g);
         height = getHeight();
         width = getWidth();
-
         // initial positioning
         if (first) {
             bottomPadX = width / 2 - padW / 2;
@@ -49,34 +48,28 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             ballY = height / 2 - ballSize / 2;
             first = false;
         }
-
         // bottom pad
         DrawUtils.drawRectangle(bottomPadX, height - padH - inset, padW, padH, Color.WHITE, g);
-
         // top pad
         DrawUtils.drawRectangle(topPadX, inset, padW, padH, Color.WHITE, g);
-
         // ball
         DrawUtils.drawCircle(ballX, ballY, ballSize, Color.WHITE, g);
-
+        // reset button
+        DrawUtils.drawResetButton("RESET", 10, height / 2 - 30, 100, 50, Color.YELLOW, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Program is currently resetting....");
+                // TODO Make this button begin and stop the ping pong game.
+            }
+        }, this);
         // exit button
-        DrawUtils.drawButton("EXIT", 10, height / 2 + 50, 100, 50, Color.YELLOW, g, new ActionListener() {
+        DrawUtils.drawExitButton("EXIT", 10, height / 2 + 30, 100, 50, Color.YELLOW, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Program is currently exiting....");
                 System.exit(5);
             }
         }, this);
-
-        // START / END button
-        DrawUtils.drawButton("START", 10, height / 2 - 30, 100, 50, Color.YELLOW, g, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Program is currently starting....");
-                // TODO Make this button begin and stop the ping pong game.
-            }
-        }, this);
-
         // scores
         String scoreB = "Bottom: " + new Integer(scoreBottom).toString();
         String scoreT = "Top: " + new Integer(scoreTop).toString();
@@ -95,7 +88,6 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             velY = -velY;
             ++ scoreBottom;
         }
-
         if (ballY + ballSize > height) {
             velY = -velY;
             ++ scoreTop;
@@ -106,14 +98,12 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
                 velY = -velY;
             }
         }
-
         // top pad
         if (ballY <= padH + inset && velY < 0) {
             if (ballX + ballSize >= topPadX && ballX <= topPadX + padW) {
                 velY = -velY;
             }
         }
-
         // makes the ball move
         ballX += velX;
         ballY += velY;
@@ -127,7 +117,6 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
                 bottomPadX += (bottomPadX < width - padW) ? SPEED : 0;
             }
         }
-
         // AI
         double delta = ballX - topPadX;
         if (delta > 0) {
