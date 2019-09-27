@@ -10,9 +10,14 @@ import javax.swing.*;
  * Date Created On: Friday, September 6, 2019
  */
 public class PingPong {
+    // frame width & height
     public static final int displayWidth = 1600;
     public static final int displayHeight = 900;
 
+    // whether to debug a message in the console for all strings put on the frame
+    public static boolean debugStrings = true;
+
+    // main program that runs when ran
     public static void main(String[] args) {
         // Loads the main GUI for the Ping Pong Game
         mainGUI();
@@ -23,7 +28,8 @@ public class PingPong {
         PingPongUtils.LOGGER.info(PingPongUtils.GAME_NAME + " has been loaded on version " + PingPongUtils.GAME_VERSION);
     }
 
-    public static void mainGUI() {
+    // main frame
+    private static void mainGUI() {
         MainPingPongGUI mainPingPongGUI = new MainPingPongGUI();
         JFrame frm = new JFrame();
         frm.setTitle("Ping Pong");
@@ -34,7 +40,8 @@ public class PingPong {
         frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public static void screenSizeChecker() {
+    // checks if the screen is too small
+    private static void screenSizeChecker() {
         String fullSize = "DisplayWidth= " + displayWidth + "; DisplayHeight= " + displayHeight;
         System.out.println(fullSize);
         float checker = displayWidth / displayHeight;
