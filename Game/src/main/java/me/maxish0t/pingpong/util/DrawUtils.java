@@ -11,6 +11,9 @@ public class DrawUtils
     private static JButton exitButton = new JButton();
     private static JButton startButton = new JButton();
 
+    // name box
+    private static TextField nameBox = new TextField();
+
     /**
      * Draws a Rectangle
      */
@@ -51,6 +54,18 @@ public class DrawUtils
         exitButton.setLocation(x, y);
         exitButton.setBackground(mainColor);
         exitButton.addActionListener(actionListener);
+        jPanel.add(exitButton);
+    }
+
+    /**
+     * Draw a Rectangle that you can type text into
+     */
+    public static void drawPlayerNameBox(String text, int x, int y, int width, int height, Color color, ActionListener actionListener, JPanel jPanel) {
+        nameBox.setText(text);
+        nameBox.setBounds(new Rectangle(x, y, width, height));
+        nameBox.setLocation(x, y);
+        nameBox.setBackground(color);
+        nameBox.addActionListener(actionListener);
         jPanel.add(exitButton);
     }
 }

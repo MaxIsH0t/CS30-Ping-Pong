@@ -71,10 +71,16 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             }
         }, this);
         // scores
-        String scoreB = "Bottom: " + new Integer(scoreBottom).toString();
-        String scoreT = "Top: " + new Integer(scoreTop).toString();
-        TextUtils.drawText(scoreB, width - 125, height / 2 + 20, 30, Color.WHITE, g);
+        String scoreT = "AI: " + new Integer(scoreTop).toString();
+        String scoreB = "Player: " + new Integer(scoreBottom).toString();
         TextUtils.drawText(scoreT, width - 105, height / 2 - 20, 30, Color.WHITE, g);
+        TextUtils.drawText(scoreB, width - 125, height / 2 + 20, 30, Color.WHITE, g);
+        // player name
+        DrawUtils.drawPlayerNameBox("Put player name here", 1, 10, 100, 50, Color.BLUE, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            }
+        }, this);
     }
 
     @Override
@@ -107,7 +113,6 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         // makes the ball move
         ballX += velX;
         ballY += velY;
-
         // pressed keys
         if (keys.size() == 1) {
             if (keys.contains("LEFT")) {
