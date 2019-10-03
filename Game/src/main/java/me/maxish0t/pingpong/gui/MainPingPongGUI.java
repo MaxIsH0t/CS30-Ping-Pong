@@ -12,12 +12,13 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     private Timer t = new Timer(5, this);
     private boolean first;
     private HashSet<String> keys = new HashSet<String>();
+    private static boolean isGameReset = false;
 
     // pad
     private final int SPEED = 6;
-    private int padH = 10, padW = 100;
-    private int bottomPadX, topPadX;
-    private int inset = 10;
+    private int       padH  = 10, padW = 100;
+    private int       bottomPadX, topPadX;
+    private int       inset = 10;
 
     // ball
     private double ballX, ballY, velX = 4, velY = 4, ballSize = 20;
@@ -42,6 +43,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         width = getWidth();
         // initial positioning
         if (first) {
+            isGameReset = false;
             bottomPadX = width / 2 - padW / 2;
             topPadX = bottomPadX;
             ballX = width / 2 - ballSize / 2;
@@ -59,7 +61,14 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Program is currently resetting....");
-                // TODO Make this button begin and stop the ping pong game.
+                ballX = width / 2 - ballSize / 2;
+                ballY = height / 2 - ballSize / 2;
+
+                ballX += velX;
+                ballY += velY;
+
+                scoreBottom = 0;
+                scoreTop = 0;
             }
         }, this);
         // exit button
@@ -93,10 +102,12 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         if (ballY < 0) {
             velY = -velY;
             ++ scoreBottom;
+            isGameReset = true;
         }
         if (ballY + ballSize > height) {
             velY = -velY;
             ++ scoreTop;
+            isGameReset = true;
         }
         // bottom pad
         if (ballY + ballSize >= height - padH - inset && velY > 0) {
@@ -109,6 +120,15 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             if (ballX + ballSize >= topPadX && ballX <= topPadX + padW) {
                 velY = -velY;
             }
+        }
+        if (isGameReset == true) {
+            ballX = width / 2 - ballSize / 2;
+            ballY = height / 2 - ballSize / 2;
+
+            ballX += velX;
+            ballY += velY;
+
+            isGameReset = false;
         }
         // makes the ball move
         ballX += velX;

@@ -2,8 +2,14 @@ package me.maxish0t.pingpong;
 
 import me.maxish0t.pingpong.gui.MainPingPongGUI;
 import me.maxish0t.pingpong.util.PingPongUtils;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
 import javax.swing.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created By Mahmoud Saleh
@@ -52,5 +58,14 @@ public class PingPong {
             System.out.println("ERROR: This program will not work on this display, the height is too small.");
             System.exit(5);
         }
+    }
+
+    // plays a song from a specific url
+    public static void playMenuMusic() throws IOException {
+        String SONG_URL = "";
+        InputStream inputStream = new FileInputStream(SONG_URL);
+
+        AudioStream audioStream = new AudioStream(inputStream);
+        AudioPlayer.player.start(audioStream);
     }
 }
