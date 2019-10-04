@@ -27,8 +27,12 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     // score
     private int scoreTop, scoreBottom;
 
+    // background color
+    private boolean isBGWhite, isBGBlack;
+
     public MainPingPongGUI() {
         setBackgroundColor(false, false);
+        isBGBlack = true;
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
@@ -51,12 +55,33 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             ballY = height / 2 - ballSize / 2;
             first = false;
         }
-        // bottom pad
-        DrawUtils.drawRectangle(bottomPadX, height - padH - inset, padW, padH, Color.WHITE, g);
-        // top pad
-        DrawUtils.drawRectangle(topPadX, inset, padW, padH, Color.WHITE, g);
-        // ball
-        DrawUtils.drawCircle(ballX, ballY, ballSize, Color.WHITE, g);
+        if (isBGBlack == true) {
+            // bottom pad
+            DrawUtils.drawRectangle(bottomPadX, height - padH - inset, padW, padH, Color.WHITE, g);
+            // top pad
+            DrawUtils.drawRectangle(topPadX, inset, padW, padH, Color.WHITE, g);
+            // ball
+            DrawUtils.drawCircle(ballX, ballY, ballSize, Color.WHITE, g);
+
+            String scoreT = "AI: " + new Integer(scoreTop).toString();
+            String scoreB = "Player: " + new Integer(scoreBottom).toString();
+            TextUtils.drawText(scoreT, width - 105, height / 2 - 20, 30, Color.WHITE, g);
+            TextUtils.drawText(scoreB, width - 125, height / 2 + 20, 30, Color.WHITE, g);
+        }
+        if (isBGWhite == true) {
+            setBackground(Color.WHITE);
+            // bottom pad
+            DrawUtils.drawRectangle(bottomPadX, height - padH - inset, padW, padH, Color.BLACK, g);
+            // top pad
+            DrawUtils.drawRectangle(topPadX, inset, padW, padH, Color.BLACK, g);
+            // ball
+            DrawUtils.drawCircle(ballX, ballY, ballSize, Color.BLACK, g);
+
+            String scoreT = "AI: " + new Integer(scoreTop).toString();
+            String scoreB = "Player: " + new Integer(scoreBottom).toString();
+            TextUtils.drawText(scoreT, width - 105, height / 2 - 20, 30, Color.BLACK, g);
+            TextUtils.drawText(scoreB, width - 125, height / 2 + 20, 30, Color.BLACK, g);
+        }
         // reset button
         DrawUtils.drawResetButton("RESET", 10, height / 2 - 30, 120, 50, Color.YELLOW, new ActionListener() {
             @Override
@@ -80,20 +105,27 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
                 System.exit(5);
             }
         }, this);
-        // background button
-        DrawUtils.drawBackgroundButton("BACKGROUND", 10, height / 2 - 90, 120, 50, Color.YELLOW, new ActionListener() {
+        // white button
+        DrawUtils.drawWhiteButton("WHITE", 10, height / 2 - 90, 120, 50, Color.YELLOW, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Program is currently changing its background....");
-                setBackground(Color.WHITE);
-                // TODO Fix this
+                if (isBGBlack == true) {
+                    isBGWhite = true;
+                    isBGBlack = false;
+                }
             }
         }, this);
-        // scores
-        String scoreT = "AI: " + new Integer(scoreTop).toString();
-        String scoreB = "Player: " + new Integer(scoreBottom).toString();
-        TextUtils.drawText(scoreT, width - 105, height / 2 - 20, 30, Color.WHITE, g);
-        TextUtils.drawText(scoreB, width - 125, height / 2 + 20, 30, Color.WHITE, g);
+        // black button
+        DrawUtils.drawBlackButton("BLACK", 10, height / 2 - 150, 120, 50, Color.YELLOW, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Program is currently changing its background....");
+                if (isBGBlack == false) {
+                    isBGBlack = true;
+                }
+            }
+        }, this);
         // player name
         DrawUtils.drawPlayerNameBox("Put player name here", 1, 10, 100, 50, Color.BLUE, new ActionListener() {
             @Override
