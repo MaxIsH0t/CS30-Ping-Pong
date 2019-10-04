@@ -7,7 +7,6 @@ import sun.audio.AudioStream;
 
 import javax.swing.*;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -62,10 +61,11 @@ public class PingPong {
 
     // plays a song from a specific url
     public static void playMenuMusic() throws IOException {
+        /**
         String SONG_URL = "";
         InputStream inputStream = new FileInputStream(SONG_URL);
 
         AudioStream audioStream = new AudioStream(inputStream);
-        AudioPlayer.player.start(audioStream);
+        AudioPlayer.player.start(audioStream);**/
     }
 }

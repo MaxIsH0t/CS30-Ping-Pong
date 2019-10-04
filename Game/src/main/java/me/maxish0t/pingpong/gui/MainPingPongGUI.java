@@ -1,5 +1,6 @@
 package me.maxish0t.pingpong.gui;
 
+import me.maxish0t.pingpong.PingPong;
 import me.maxish0t.pingpong.util.DrawUtils;
 import me.maxish0t.pingpong.util.TextUtils;
 import java.awt.*;
@@ -12,7 +13,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     private Timer t = new Timer(5, this);
     private boolean first;
     private HashSet<String> keys = new HashSet<String>();
-    private static boolean isGameReset = false;
+    public static boolean isGameReset = false;
 
     // pad
     private final int SPEED = 6;
@@ -27,7 +28,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     private int scoreTop, scoreBottom;
 
     public MainPingPongGUI() {
-        setBackground(Color.BLACK);
+        setBackgroundColor(false, false);
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
@@ -57,7 +58,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         // ball
         DrawUtils.drawCircle(ballX, ballY, ballSize, Color.WHITE, g);
         // reset button
-        DrawUtils.drawResetButton("RESET", 10, height / 2 - 30, 100, 50, Color.YELLOW, new ActionListener() {
+        DrawUtils.drawResetButton("RESET", 10, height / 2 - 30, 120, 50, Color.YELLOW, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Program is currently resetting....");
@@ -72,11 +73,20 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             }
         }, this);
         // exit button
-        DrawUtils.drawExitButton("EXIT", 10, height / 2 + 30, 100, 50, Color.YELLOW, new ActionListener() {
+        DrawUtils.drawExitButton("EXIT", 10, height / 2 + 30, 120, 50, Color.YELLOW, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Program is currently exiting....");
                 System.exit(5);
+            }
+        }, this);
+        // background button
+        DrawUtils.drawBackgroundButton("BACKGROUND", 10, height / 2 - 90, 120, 50, Color.YELLOW, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Program is currently changing its background....");
+                setBackground(Color.WHITE);
+                // TODO Fix this
             }
         }, this);
         // scores
@@ -90,6 +100,10 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             public void actionPerformed(ActionEvent e) {
             }
         }, this);
+        // game reset
+        if (isGameReset == true) {
+            TextUtils.drawText("Press the button to reset the ball.", width / 2, 150 * 2, 40, Color.WHITE, g);
+        }
     }
 
     @Override
@@ -179,6 +193,15 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             case KeyEvent.VK_RIGHT:
                 keys.remove("RIGHT");
                 break;
+        }
+    }
+
+    private void setBackgroundColor(boolean setWhite, boolean setBlack) {
+        setBackground(Color.BLACK);
+        if (this.getBackground() == Color.BLACK && setWhite == true) {
+            setBackground(Color.WHITE);
+        } else if (this.getBackground() == Color.WHITE && setBlack == true) {
+            setBackground(Color.BLACK);
         }
     }
 }

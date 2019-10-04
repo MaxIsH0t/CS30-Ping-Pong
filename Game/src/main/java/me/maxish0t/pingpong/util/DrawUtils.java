@@ -10,6 +10,7 @@ public class DrawUtils
     // Buttons
     private static JButton exitButton = new JButton();
     private static JButton startButton = new JButton();
+    private static JButton backgroundButton = new JButton();
 
     // name box
     private static TextField nameBox = new TextField();
@@ -55,6 +56,18 @@ public class DrawUtils
         exitButton.setBackground(mainColor);
         exitButton.addActionListener(actionListener);
         jPanel.add(exitButton);
+    }
+
+    /**
+     * Draw a Change Color Background Button
+     */
+    public static void drawBackgroundButton(String buttonText, int x, int y, int width, int height, Color mainColor, ActionListener actionListener, JPanel jPanel) {
+        backgroundButton.setText(buttonText);
+        backgroundButton.setBounds(x, y, width, height);
+        backgroundButton.setLocation(x, y);
+        backgroundButton.setBackground(mainColor);
+        backgroundButton.addActionListener(actionListener);
+        jPanel.add(backgroundButton);
     }
 
     /**
