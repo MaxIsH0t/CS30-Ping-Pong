@@ -9,15 +9,14 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/PingPong.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/PingPong.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/PingPong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/PingPong.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/gui/MainPingPongGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/gui/MainPingPongGUI.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,6 +29,37 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Game" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Game" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Game" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -90,8 +120,68 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Game [assemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="assemble" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Game [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="buildDependents" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Game [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Game [assemble]" />
+        <item itemvalue="Gradle.Game [buildDependents]" />
+        <item itemvalue="Gradle.Game [build]" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.PingPong" />
       </list>

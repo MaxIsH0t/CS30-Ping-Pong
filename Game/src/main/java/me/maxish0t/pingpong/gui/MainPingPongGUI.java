@@ -16,13 +16,13 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     public static boolean isGameReset = false;
 
     // pad
-    private final int SPEED = 6;
+    private final int SPEED = 5;
     private int       padH  = 10, padW = 100;
     private int       bottomPadX, topPadX;
     private int       inset = 10;
 
     // ball
-    private double ballX, ballY, velX = 4, velY = 4, ballSize = 20;
+    private double ballX, ballY, velX = 3, velY = 3, ballSize = 20;
 
     // score
     private int scoreTop, scoreBottom;
@@ -87,7 +87,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         DrawUtils.drawResetButton("RESET", 10, height / 2 - 30, 120, 50, Color.YELLOW, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Program is currently resetting....");
+                //System.out.println("Program is currently resetting....");
                 ballX = width / 2 - ballSize / 2;
                 ballY = height / 2 - ballSize / 2;
 
@@ -102,7 +102,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         DrawUtils.drawExitButton("EXIT", 10, height / 2 + 30, 120, 50, Color.YELLOW, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Program is currently exiting....");
+                //System.out.println("Program is currently exiting....");
                 System.exit(5);
             }
         }, this);
@@ -110,7 +110,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         DrawUtils.drawWhiteButton("WHITE", 10, height / 2 - 90, 120, 50, Color.YELLOW, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Program is currently changing its background....");
+                //System.out.println("Program is currently changing its background....");
                 isBGBlack = false;
                 isBGWhite = true;
             }
@@ -119,7 +119,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         DrawUtils.drawBlackButton("BLACK", 10, height / 2 - 150, 120, 50, Color.YELLOW, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Program is currently changing its background....");
+                //System.out.println("Program is currently changing its background....");
                 if (isBGWhite == true) {
                     isBGWhite = false;
                     isBGBlack = true;
