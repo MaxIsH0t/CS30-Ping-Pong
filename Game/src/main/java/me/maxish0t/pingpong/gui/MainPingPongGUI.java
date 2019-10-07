@@ -55,7 +55,8 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             ballY = height / 2 - ballSize / 2;
             first = false;
         }
-        if (isBGBlack == true) {
+        if (isBGBlack == true && isBGWhite == false) {
+            setBackground(Color.BLACK);
             // bottom pad
             DrawUtils.drawRectangle(bottomPadX, height - padH - inset, padW, padH, Color.WHITE, g);
             // top pad
@@ -68,7 +69,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             TextUtils.drawText(scoreT, width - 105, height / 2 - 20, 30, Color.WHITE, g);
             TextUtils.drawText(scoreB, width - 125, height / 2 + 20, 30, Color.WHITE, g);
         }
-        if (isBGWhite == true) {
+        if (isBGWhite == true && isBGBlack == false) {
             setBackground(Color.WHITE);
             // bottom pad
             DrawUtils.drawRectangle(bottomPadX, height - padH - inset, padW, padH, Color.BLACK, g);
@@ -110,10 +111,8 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Program is currently changing its background....");
-                if (isBGBlack == true) {
-                    isBGWhite = true;
-                    isBGBlack = false;
-                }
+                isBGBlack = false;
+                isBGWhite = true;
             }
         }, this);
         // black button
@@ -121,7 +120,10 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Program is currently changing its background....");
-                if (isBGBlack == false) {
+                if (isBGWhite == true) {
+                    isBGWhite = false;
+                    isBGBlack = true;
+                } else {
                     isBGBlack = true;
                 }
             }

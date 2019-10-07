@@ -58,14 +58,4 @@ public class PingPong {
             System.exit(5);
         }
     }
-
-    // plays a song from a specific url
-    public static void playMenuMusic() throws IOException {
-        /**
-        String SONG_URL = "";
-        InputStream inputStream = new FileInputStream(SONG_URL);
-
-        AudioStream audioStream = new AudioStream(inputStream);
-        AudioPlayer.player.start(audioStream);**/
-    }
 }
