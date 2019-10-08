@@ -40,7 +40,7 @@ public class PingPong {
     private static void mainGUI() throws IOException, URISyntaxException {
         MainPingPongGUI mainPingPongGUI = new MainPingPongGUI();
         JFrame frm = new JFrame();
-        frm.setTitle("Ping Pong");
+        frm.setTitle("Ping Pong - " + PingPongUtils.GAME_VERSION);
         frm.setContentPane(mainPingPongGUI);
         frm.setSize(displayWidth, displayHeight);
         frm.setResizable(false);
