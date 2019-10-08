@@ -1,6 +1,5 @@
 package me.maxish0t.pingpong.gui;
 
-import me.maxish0t.pingpong.PingPong;
 import me.maxish0t.pingpong.util.DrawUtils;
 import me.maxish0t.pingpong.util.TextUtils;
 import java.awt.*;
@@ -9,6 +8,7 @@ import java.util.HashSet;
 import javax.swing.*;
 
 public class MainPingPongGUI extends JPanel implements KeyListener, ActionListener {
+    private String BORDER = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
     private int height, width;
     private Timer t = new Timer(5, this);
     private boolean first;
@@ -22,13 +22,16 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     private int       inset = 10;
 
     // ball
-    private double ballX, ballY, velX = 3, velY = 3, ballSize = 20;
+    private double ballX, ballY, velX = 2, velY = 2, ballSize = 20;
 
     // score
     private int scoreTop, scoreBottom;
 
     // background color
     private boolean isBGWhite, isBGBlack;
+
+    // pause game
+    private boolean isGamePaused;
 
     public MainPingPongGUI() {
         setBackgroundColor(false, false);
@@ -64,10 +67,11 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             // ball
             DrawUtils.drawCircle(ballX, ballY, ballSize, Color.WHITE, g);
 
+            TextUtils.drawText(BORDER, 0, height / 2, 35, Color.WHITE, g);
             String scoreT = "AI: " + new Integer(scoreTop).toString();
             String scoreB = "Player: " + new Integer(scoreBottom).toString();
-            TextUtils.drawText(scoreT, width - 105, height / 2 - 20, 30, Color.WHITE, g);
-            TextUtils.drawText(scoreB, width - 125, height / 2 + 20, 30, Color.WHITE, g);
+            TextUtils.drawText(scoreT, width - 105, height / 2 - 30, 30, Color.WHITE, g);
+            TextUtils.drawText(scoreB, width - 125, height / 2 + 30, 30, Color.WHITE, g);
         }
         if (isBGWhite == true && isBGBlack == false) {
             setBackground(Color.WHITE);
@@ -78,13 +82,14 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             // ball
             DrawUtils.drawCircle(ballX, ballY, ballSize, Color.BLACK, g);
 
+            TextUtils.drawText(BORDER, 0, height / 2, 35, Color.BLACK, g);
             String scoreT = "AI: " + new Integer(scoreTop).toString();
             String scoreB = "Player: " + new Integer(scoreBottom).toString();
-            TextUtils.drawText(scoreT, width - 105, height / 2 - 20, 30, Color.BLACK, g);
-            TextUtils.drawText(scoreB, width - 125, height / 2 + 20, 30, Color.BLACK, g);
+            TextUtils.drawText(scoreT, width - 105, height / 2 - 30, 30, Color.BLACK, g);
+            TextUtils.drawText(scoreB, width - 125, height / 2 + 30, 30, Color.BLACK, g);
         }
         // reset button
-        DrawUtils.drawResetButton("RESET", 10, height / 2 - 30, 120, 50, Color.YELLOW, new ActionListener() {
+        DrawUtils.drawResetButton("RESET", 10, height / 2 + 30, 120, 50, Color.YELLOW, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //System.out.println("Program is currently resetting....");
@@ -99,7 +104,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             }
         }, this);
         // exit button
-        DrawUtils.drawExitButton("EXIT", 10, height / 2 + 30, 120, 50, Color.YELLOW, new ActionListener() {
+        DrawUtils.drawExitButton("EXIT", 10, height / 2 + 90, 120, 50, Color.YELLOW, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //System.out.println("Program is currently exiting....");
@@ -151,11 +156,13 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             velY = -velY;
             ++ scoreBottom;
             isGameReset = true;
+            isGamePaused = true;
         }
         if (ballY + ballSize > height) {
             velY = -velY;
             ++ scoreTop;
             isGameReset = true;
+            isGamePaused = true;
         }
         // bottom pad
         if (ballY + ballSize >= height - padH - inset && velY > 0) {

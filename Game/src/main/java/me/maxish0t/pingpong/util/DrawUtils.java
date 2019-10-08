@@ -12,6 +12,7 @@ public class DrawUtils
     private static JButton startButton = new JButton();
     private static JButton backgroundButton = new JButton();
     private static JButton backgroundButton2 = new JButton();
+    private static JButton pausedButton = new JButton();
 
     // name box
     private static TextField nameBox = new TextField();
@@ -93,5 +94,17 @@ public class DrawUtils
         nameBox.setBackground(color);
         nameBox.addActionListener(actionListener);
         jPanel.add(exitButton);
+    }
+
+    /**
+     * Draw a Game Paused Button
+     */
+    public static void drawPausedButton(String text, int x, int y, int width, int height, Color color, ActionListener actionListener, JPanel jPanel) {
+        pausedButton.setText(text);
+        pausedButton.setBounds(new Rectangle(x, y, width, height));
+        pausedButton.setLocation(x, y);
+        pausedButton.setBackground(color);
+        pausedButton.addActionListener(actionListener);
+        jPanel.add(pausedButton);
     }
 }

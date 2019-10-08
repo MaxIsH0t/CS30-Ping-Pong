@@ -2,13 +2,16 @@ package me.maxish0t.pingpong;
 
 import me.maxish0t.pingpong.gui.MainPingPongGUI;
 import me.maxish0t.pingpong.util.PingPongUtils;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.io.FileInputStream;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Paths;
 
 /**
  * Created By Mahmoud Saleh
@@ -23,7 +26,7 @@ public class PingPong {
     public static boolean debugStrings = true;
 
     // main program that runs when ran
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, URISyntaxException {
         // Loads the main GUI for the Ping Pong Game
         mainGUI();
 
@@ -34,7 +37,7 @@ public class PingPong {
     }
 
     // main frame
-    private static void mainGUI() {
+    private static void mainGUI() throws IOException, URISyntaxException {
         MainPingPongGUI mainPingPongGUI = new MainPingPongGUI();
         JFrame frm = new JFrame();
         frm.setTitle("Ping Pong");
@@ -43,6 +46,12 @@ public class PingPong {
         frm.setResizable(false);
         frm.setVisible(true);
         frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        URL res = PingPong.class.getClassLoader().getResource("icon.png");
+        File file = Paths.get(res.toURI()).toFile();
+        String absolutePath = file.getAbsolutePath();
+        BufferedImage myImg = ImageIO.read(new File(absolutePath));
+        frm.setIconImage(myImg);
     }
 
     // checks if the screen is too small
