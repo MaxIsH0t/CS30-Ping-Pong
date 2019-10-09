@@ -22,7 +22,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     private int       inset = 10;
 
     // ball
-    private double ballX, ballY, velX = 2, velY = 2, ballSize = 20;
+    private double ballX, ballY, velX = 3, velY = 3, ballSize = 20;
 
     // score
     private int scoreTop, scoreBottom;
