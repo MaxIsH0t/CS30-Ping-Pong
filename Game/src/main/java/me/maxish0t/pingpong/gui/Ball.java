@@ -8,10 +8,10 @@ public class Ball {
     /**
      * Ball Variables
      */
-    private double x;
-    private double y;
-    private double diameter;
-    private Color color;
+    public double x;
+    public double y;
+    public double diameter;
+    public Color color;
 
     /**
      * Draws a Ball
@@ -26,11 +26,6 @@ public class Ball {
         this.y = y;
         this.diameter = diameter;
         this.color = color;
-
-        Graphics2D g2d = (Graphics2D) graphics;
-        Ellipse2D ball = new Ellipse2D.Double(this.x, this.y, this.diameter, this.diameter);
-        g2d.setColor(this.color);
-        g2d.fill(ball);
     }
 
     public static void drawBall(double x, double y, double diameter, Color color, Graphics graphics) {

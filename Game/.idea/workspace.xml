@@ -8,21 +8,13 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/PingPong.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/PingPong.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/MainPingPongGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/util/DrawUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/util/DrawUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/Ball.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/gui/Ball.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/util/ScreenSizeTester.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/me/maxish0t/pingpong/util/ScreenSizeTester.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/PingPong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/PingPong.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/gui/MainPingPongGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/gui/MainPingPongGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/util/DrawUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/util/DrawUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/gui/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/gui/Ball.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
