@@ -8,9 +8,10 @@ import java.util.HashSet;
 import javax.swing.*;
 
 public class MainPingPongGUI extends JPanel implements KeyListener, ActionListener {
-    private String BORDER = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
-    private int height, width;
-    private Timer t = new Timer(5, this);
+
+    private String  BORDER = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
+    private int     height, width;
+    private Timer   t = new Timer(5, this);
     private boolean first;
     private HashSet<String> keys = new HashSet<String>();
     public static boolean isGameReset = false;
@@ -22,7 +23,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     private int       inset = 10;
 
     // ball
-    private double ballX, ballY, velX = 3, velY = 3, ballSize = 20;
+    private double ballX, ballY, ballSpeedX = 3, ballSpeedY = 3, ballSize = 20;
 
     // score
     private int scoreTop, scoreBottom;
@@ -65,7 +66,8 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             // top pad
             DrawUtils.drawRectangle(topPadX, inset, padW, padH, Color.WHITE, g);
             // ball
-            DrawUtils.drawCircle(ballX, ballY, ballSize, Color.WHITE, g);
+            Ball.drawBall(ballX, ballY, ballSize, Color.WHITE, g);
+
 
             TextUtils.drawText(BORDER, 0, height / 2, 35, Color.WHITE, g);
             String scoreT = "AI: " + new Integer(scoreTop).toString();
@@ -80,7 +82,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             // top pad
             DrawUtils.drawRectangle(topPadX, inset, padW, padH, Color.BLACK, g);
             // ball
-            DrawUtils.drawCircle(ballX, ballY, ballSize, Color.BLACK, g);
+            Ball.drawBall(ballX, ballY, ballSize, Color.BLACK, g);
 
             TextUtils.drawText(BORDER, 0, height / 2, 35, Color.BLACK, g);
             String scoreT = "AI: " + new Integer(scoreTop).toString();
@@ -92,12 +94,11 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         DrawUtils.drawResetButton("RESET", 10, height / 2 + 30, 120, 50, Color.YELLOW, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //System.out.println("Program is currently resetting....");
                 ballX = width / 2 - ballSize / 2;
                 ballY = height / 2 - ballSize / 2;
 
-                ballX += velX;
-                ballY += velY;
+                ballX += ballSpeedX;
+                ballY += ballSpeedY;
 
                 scoreBottom = 0;
                 scoreTop = 0;
@@ -107,7 +108,6 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         DrawUtils.drawExitButton("EXIT", 10, height / 2 + 90, 120, 50, Color.YELLOW, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //System.out.println("Program is currently exiting....");
                 System.exit(5);
             }
         }, this);
@@ -115,7 +115,6 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         DrawUtils.drawWhiteButton("WHITE", 10, height / 2 - 90, 120, 50, Color.YELLOW, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //System.out.println("Program is currently changing its background....");
                 isBGBlack = false;
                 isBGWhite = true;
             }
@@ -124,7 +123,6 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         DrawUtils.drawBlackButton("BLACK", 10, height / 2 - 150, 120, 50, Color.YELLOW, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //System.out.println("Program is currently changing its background....");
                 if (isBGWhite == true) {
                     isBGWhite = false;
                     isBGBlack = true;
@@ -149,45 +147,47 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     public void actionPerformed(ActionEvent e) {
         // side walls
         if (ballX < 0 || ballX > width - ballSize) {
-            velX = -velX;
+            ballSpeedX = -ballSpeedX;
         }
         // top / down walls
         if (ballY < 0) {
-            velY = -velY;
+            ballSpeedY = -ballSpeedY;
             ++ scoreBottom;
             isGameReset = true;
             isGamePaused = true;
         }
         if (ballY + ballSize > height) {
-            velY = -velY;
+            ballSpeedY = -ballSpeedY;
             ++ scoreTop;
             isGameReset = true;
             isGamePaused = true;
         }
         // bottom pad
-        if (ballY + ballSize >= height - padH - inset && velY > 0) {
+        if (ballY + ballSize >= height - padH - inset && ballSpeedY > 0) {
             if (ballX + ballSize >= bottomPadX && ballX <= bottomPadX + padW) {
-                velY = -velY;
+                ballSpeedY = -ballSpeedY;
             }
         }
         // top pad
-        if (ballY <= padH + inset && velY < 0) {
+        if (ballY <= padH + inset && ballSpeedY < 0) {
             if (ballX + ballSize >= topPadX && ballX <= topPadX + padW) {
-                velY = -velY;
+                ballSpeedY = -ballSpeedY;
             }
         }
         if (isGameReset == true) {
             ballX = width / 2 - ballSize / 2;
             ballY = height / 2 - ballSize / 2;
 
-            ballX += velX;
-            ballY += velY;
+            ballX += ballSpeedX;
+            ballY += ballSpeedY;
 
             isGameReset = false;
         }
+
         // makes the ball move
-        ballX += velX;
-        ballY += velY;
+        ballX += ballSpeedX;
+        ballY += ballSpeedY;
+
         // pressed keys
         if (keys.size() == 1) {
             if (keys.contains("LEFT")) {

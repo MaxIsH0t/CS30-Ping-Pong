@@ -23,4 +23,5 @@ repositories {
 dependencies {
     compile "joda-time:joda-time:2.2"
     testCompile "junit:junit:4.12"
+    compile fileTree(dir: 'libs', include: '*.jar')
 }

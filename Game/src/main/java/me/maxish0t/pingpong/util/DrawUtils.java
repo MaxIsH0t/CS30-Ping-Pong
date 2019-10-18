@@ -107,4 +107,14 @@ public class DrawUtils
         pausedButton.addActionListener(actionListener);
         jPanel.add(pausedButton);
     }
+
+    /**
+     * Draws a Circle with a Particle Effect
+     */
+    public static void drawCircleParticle(double x, double y, double ballSize, Color color, Graphics graphics) {
+        Graphics2D g2d = (Graphics2D) graphics;
+        Ellipse2D ball = new Ellipse2D.Double(x, y, ballSize, ballSize);
+        g2d.setColor(color);
+        g2d.fill(ball);
+    }
 }
