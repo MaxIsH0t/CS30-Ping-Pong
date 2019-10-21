@@ -64,6 +64,7 @@ public class PingPong {
         BallChaseGUI ballChaseGUI = new BallChaseGUI();
         JFrame frm = new JFrame();
         frm.setTitle("BallChaseGUI - " + PingPongUtils.GAME_VERSION);
+        frm.getContentPane().add(new BallChaseGUI());
         frm.setContentPane(ballChaseGUI);
         frm.setSize(displayWidth, displayHeight);
         frm.setResizable(false);
