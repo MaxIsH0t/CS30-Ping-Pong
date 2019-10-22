@@ -78,4 +78,5 @@ public class PingPong {
         BufferedImage myImg = ImageIO.read(new File(absolutePath));
         frm.setIconImage(myImg);
     }
+
 }

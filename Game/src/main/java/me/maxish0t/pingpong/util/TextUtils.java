@@ -5,6 +5,7 @@ import me.maxish0t.pingpong.PingPong;
 import java.awt.*;
 
 public class TextUtils {
+
     /**
      * Draws a text
      */
@@ -19,4 +20,5 @@ public class TextUtils {
             PingPong.debugStrings = false;
         }
     }
+
 }

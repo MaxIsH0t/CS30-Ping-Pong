@@ -34,9 +34,33 @@ public class BallChaseGUI extends JPanel implements MouseListener, ActionListene
     }
 
     public void mouseClicker() {
-        getMousePosition().move(ballX, ballY);
-        ballX = mouseX;
-        ballY = mouseY;
+        //getMousePosition().move(ballX, ballY);
+        //ballX = mouseX;
+        //ballY = mouseY;
+
+        if( ballX < mouseX ){
+            ballSpeedX = -ballSpeedX;
+            ballSpeedY = -ballSpeedY;
+        }
+        if( ballX > mouseX ){
+            ballSpeedX = -ballSpeedX;
+            ballSpeedY = -ballSpeedY;
+        }
+        if( ballY < mouseY ){
+            ballSpeedY = -ballSpeedY;
+        }
+        if( ballY > mouseY ){
+            ballSpeedY = -ballSpeedY;
+        }
+        repaint();
+    }
+
+    public int mouseX() {
+        return mouseX;
+    }
+
+    public int mouseY() {
+        return mouseY;
     }
 
     @Override
@@ -58,7 +82,6 @@ public class BallChaseGUI extends JPanel implements MouseListener, ActionListene
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
         if (ballY > height - ballSize) {
             ballSpeedY = -ballSpeedY;
         } else if (ballX > width - ballSize) {

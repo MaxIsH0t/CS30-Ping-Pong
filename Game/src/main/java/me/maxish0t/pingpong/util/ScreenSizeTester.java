@@ -17,4 +17,5 @@ public class ScreenSizeTester {
             System.exit(5);
         }
     }
+
 }
