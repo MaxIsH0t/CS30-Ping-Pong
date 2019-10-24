@@ -66,7 +66,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             // top pad
             DrawUtils.drawRectangle(topPadX, inset, padW, padH, Color.WHITE, g);
             // ball
-            Ball.drawBall(ballX, ballY, ballSize, Color.WHITE, g);
+            DrawUtils.drawCircle(ballX, ballY, ballSize, Color.WHITE, g);
 
 
             TextUtils.drawText(BORDER, 0, height / 2, 35, Color.WHITE, g);
@@ -82,7 +82,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             // top pad
             DrawUtils.drawRectangle(topPadX, inset, padW, padH, Color.BLACK, g);
             // ball
-            Ball.drawBall(ballX, ballY, ballSize, Color.BLACK, g);
+            DrawUtils.drawCircle(ballX, ballY, ballSize, Color.BLACK, g);
 
             TextUtils.drawText(BORDER, 0, height / 2, 35, Color.BLACK, g);
             String scoreT = "AI: " + new Integer(scoreTop).toString();

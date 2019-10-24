@@ -1,17 +1,26 @@
 package me.maxish0t.pingpong.gui;
 
+import me.maxish0t.pingpong.PingPong;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Random;
 
-public class BallChaseGUI extends JPanel implements MouseListener, ActionListener {
+public class BallChaseGUI extends JPanel implements MouseListener, ActionListener, KeyListener {
 
     private int mouseX, mouseY;
     private int height, width;
     private boolean first;
+    private boolean start;
     private int ballX, ballY, ballSpeedX = 3, ballSpeedY = 3, ballSize = 20;
-    private Color color = Color.WHITE;
+    private HashSet<String> keys = new HashSet<String>();
     private Timer t = new Timer(5, this);
+
+    Random rnd = new Random();
+    public ArrayList<TestBall> balls = new ArrayList<TestBall>();
 
     public BallChaseGUI() {
         setBackground(Color.BLACK);
@@ -31,6 +40,12 @@ public class BallChaseGUI extends JPanel implements MouseListener, ActionListene
         first = true;
         t.setInitialDelay(100);
         t.start();
+
+        for (int i = 0; i < 50; i++) {
+            int randomStartXPos = (int) (Math.random() * (PingPong.displayWidth - 40) + 1);
+            int randomStartYPos = (int) (Math.random() * (PingPong.displayHeight - 40) + 1);
+            balls.add(new TestBall(randomStartXPos, randomStartYPos, 30));
+        }
     }
 
     public void mouseClicker() {
@@ -55,14 +70,6 @@ public class BallChaseGUI extends JPanel implements MouseListener, ActionListene
         repaint();
     }
 
-    public int mouseX() {
-        return mouseX;
-    }
-
-    public int mouseY() {
-        return mouseY;
-    }
-
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -70,14 +77,35 @@ public class BallChaseGUI extends JPanel implements MouseListener, ActionListene
         height = getHeight();
         width = getWidth();
 
+        super.paintComponent(g);
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setColor(Color.BLACK);
+        g2d.fillRect(0, 0, getWidth(), getHeight());
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.setPaint(new Color(rnd.nextInt(255), rnd.nextInt(255), rnd.nextInt(255)));
+
+        for (TestBall ball : balls) {
+            ball.move();
+            g2d.draw(ball.getEllipse());
+        }
+
         if (first) {
             ballX = width / 2 - ballSize / 2;
             ballY = height / 2 - ballSize / 2;
             first = false;
         }
 
-        // Ball
-        Ball.drawBall(ballX, ballY, ballSize, Color.WHITE, g);
+        if (start == false) {
+            // Ball
+            Ball testBall = new Ball(ballX, ballY, ballSize, Color.WHITE);
+            testBall.drawBall(g);
+        }
+    }
+
+    public void move() {
+        for (TestBall ball : balls) {
+            ball.move();
+        }
     }
 
     @Override
@@ -96,7 +124,37 @@ public class BallChaseGUI extends JPanel implements MouseListener, ActionListene
         ballX += ballSpeedX;
         ballY += ballSpeedY;
 
+        // pressed keys
+        if (keys.contains("SPACE")) {
+            start = true;
+        }
+        if (keys.size() == 1) {
+            if (keys.contains("SPACE")) {
+                start = true;
+            }
+        }
+
         repaint();
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        int code = e.getKeyCode();
+        switch (code) {
+            case KeyEvent.VK_BACK_SPACE:
+                keys.add("SPACE");
+                break;
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        int code = e.getKeyCode();
+        switch (code) {
+            case KeyEvent.VK_BACK_SPACE:
+                keys.remove("SPACE");
+                break;
+        }
     }
 
     @Override
@@ -113,4 +171,7 @@ public class BallChaseGUI extends JPanel implements MouseListener, ActionListene
 
     @Override
     public void mouseExited(MouseEvent e) {}
+
+    @Override
+    public void keyTyped(KeyEvent e) {}
 }

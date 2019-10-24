@@ -3,15 +3,16 @@ package me.maxish0t.pingpong.gui;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
-public class Ball {
+public class StarCount {
 
     /**
-     * Ball Variables
+     * StarCount Variables
      */
     public static double x;
     public static double y;
     public static double diameter;
     public static Color color;
+    public static int starCount = 1;
 
     /**
      * Draws a Ball
@@ -20,11 +21,12 @@ public class Ball {
      * @param diameter
      * @param color
      */
-    public Ball(double x, double y, double diameter, Color color) {
+    public StarCount(double x, double y, double diameter, Color color, int starCount) {
         this.x = x;
         this.y = y;
         this.diameter = diameter;
         this.color = color;
+        this.starCount = starCount;
     }
 
     public static void drawBall(Graphics graphics) {
