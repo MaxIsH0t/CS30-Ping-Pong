@@ -1,6 +1,6 @@
 package me.maxish0t.pingpong;
 
-import me.maxish0t.pingpong.gui.BallChaseGUI;
+import me.maxish0t.pingpong.gui.BallChaseAndNightSkyGUI;
 import me.maxish0t.pingpong.gui.MainPingPongGUI;
 import me.maxish0t.pingpong.util.PingPongUtils;
 import me.maxish0t.pingpong.util.ScreenSizeTester;
@@ -10,7 +10,6 @@ import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Paths;
@@ -61,10 +60,10 @@ public class PingPong {
 
     // ball chase frame
     private static void ballChaseGUI() throws URISyntaxException, IOException {
-        BallChaseGUI ballChaseGUI = new BallChaseGUI();
+        BallChaseAndNightSkyGUI ballChaseGUI = new BallChaseAndNightSkyGUI();
         JFrame frm = new JFrame();
         frm.setTitle("BallChaseGUI - " + PingPongUtils.GAME_VERSION);
-        frm.getContentPane().add(new BallChaseGUI());
+        frm.getContentPane().add(new BallChaseAndNightSkyGUI());
         frm.setContentPane(ballChaseGUI);
         frm.setSize(displayWidth, displayHeight);
         frm.setResizable(false);
