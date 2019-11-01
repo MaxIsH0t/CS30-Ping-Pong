@@ -1,13 +1,16 @@
 package me.maxish0t.pingpong.gui;
 
+import me.maxish0t.pingpong.PingPong;
 import me.maxish0t.pingpong.util.DrawUtils;
 import me.maxish0t.pingpong.util.TextUtils;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Random;
 import javax.swing.*;
 
-public class MainPingPongGUI extends JPanel implements KeyListener, ActionListener {
+public class MainPingPongGUI extends JPanel implements KeyListener, ActionListener, MouseListener {
 
     private String  BORDER = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
     private int     height, width;
@@ -15,6 +18,10 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     private boolean first;
     private HashSet<String> keys = new HashSet<String>();
     public static boolean isGameReset = false;
+    private boolean shouldMoveBall = false;
+
+    // mouse
+    private int mouseX, mouseY;
 
     // pad
     private final int SPEED = 5;
@@ -34,15 +41,67 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     // pause game
     private boolean isGamePaused;
 
+    private ArrayList<NightSkyBalls> balls = new ArrayList<>();
+    private Firework[] fireworks = new Firework[25];
+    private Random rnd = new Random();
+
     public MainPingPongGUI() {
         setBackgroundColor(false, false);
         isBGBlack = true;
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
+        addMouseListener(this);
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                mouseX = getMousePosition().x;
+                mouseY = getMousePosition().y;
+
+                mouseClicker();
+            }
+        });
         first = true;
         t.setInitialDelay(100);
         t.start();
+
+        // spawns 60 random night sky balls at a random position
+        for (int i = 0; i < 60; i++) {
+            int randomStartXPos = (int) (Math.random() * (PingPong.displayWidth - 40) + 1);
+            int randomStartYPos = (int) (Math.random() * (PingPong.displayHeight - 40) + 1);
+            balls.add(new NightSkyBalls(randomStartXPos, randomStartYPos, 30));
+        }
+    }
+
+    /**
+     * When the mouse is clicked things in this method will happen.
+     */
+    private void mouseClicker() {
+        for (int i=0; i < fireworks.length; i++) {
+            fireworks[i] = new Firework (width, height);
+        }
+        // makes the night sky balls move
+        for (NightSkyBalls ball : balls) {
+            ball.move();
+        }
+        if (shouldMoveBall) {
+            if( ballX < mouseX ){
+                ballSpeedX = -ballSpeedX;
+                ballSpeedY = -ballSpeedY;
+            }
+            if( ballX > mouseX ){
+                ballSpeedX = -ballSpeedX;
+                ballSpeedY = -ballSpeedY;
+            }
+            if( ballY < mouseY ){
+                ballSpeedY = -ballSpeedY;
+            }
+            if( ballY > mouseY ){
+                ballSpeedY = -ballSpeedY;
+            }
+        }
+        repaint();
     }
 
     @Override
@@ -50,6 +109,21 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         super.paintComponent(g);
         height = getHeight();
         width = getWidth();
+
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setColor(Color.BLACK);
+        g2d.fillRect(0, 0, getWidth(), getHeight());
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.setPaint(new Color(rnd.nextInt(255), rnd.nextInt(255), rnd.nextInt(255)));
+
+        for(int i=0; i < fireworks.length; i++) {
+            fireworks[i] = new Firework(width, height);
+        }
+
+        // draws the night sky balls
+        for (NightSkyBalls ball : balls) {
+            g2d.draw(ball.getEllipse());
+        }
         // initial positioning
         if (first) {
             isGameReset = false;
@@ -184,6 +258,11 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             isGameReset = false;
         }
 
+        for (int i=0; i < fireworks.length; i++) {
+//            fireworks[i].step(); //Calculate Arithmetic
+//            fireworks[i].drawFirework(getGraphics()); //Draw to the Canvas
+        }
+
         // makes the ball move
         ballX += ballSpeedX;
         ballY += ballSpeedY;
@@ -245,4 +324,19 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             setBackground(Color.BLACK);
         }
     }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {} // unused
+
+    @Override
+    public void mousePressed(MouseEvent e) {} // unused
+
+    @Override
+    public void mouseReleased(MouseEvent e) {} // unused
+
+    @Override
+    public void mouseEntered(MouseEvent e) {} // unused
+
+    @Override
+    public void mouseExited(MouseEvent e) {} // unused
 }

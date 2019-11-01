@@ -1,6 +1,5 @@
 package me.maxish0t.pingpong;
 
-import me.maxish0t.pingpong.gui.BallChaseAndNightSkyGUI;
 import me.maxish0t.pingpong.gui.MainPingPongGUI;
 import me.maxish0t.pingpong.util.PingPongUtils;
 import me.maxish0t.pingpong.util.ScreenSizeTester;
@@ -30,8 +29,7 @@ public class PingPong {
     // main program that runs when ran
     public static void main(String[] args) throws IOException, URISyntaxException {
         // Loads the main GUI for the Ping Pong Game
-        //mainGUI();
-        ballChaseGUI();
+        mainGUI();
 
         // Screen Size Checker
         ScreenSizeTester.checker();
@@ -45,26 +43,6 @@ public class PingPong {
         JFrame frm = new JFrame();
         frm.setTitle("Ping Pong - " + PingPongUtils.GAME_VERSION);
         frm.setContentPane(mainPingPongGUI);
-        frm.setSize(displayWidth, displayHeight);
-        frm.setResizable(false);
-        frm.setVisible(true);
-        frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        // Sets the Icon from the resources
-        URL res = PingPong.class.getClassLoader().getResource("icon.png");
-        File file = Paths.get(res.toURI()).toFile();
-        String absolutePath = file.getAbsolutePath();
-        BufferedImage myImg = ImageIO.read(new File(absolutePath));
-        frm.setIconImage(myImg);
-    }
-
-    // ball chase frame
-    private static void ballChaseGUI() throws URISyntaxException, IOException {
-        BallChaseAndNightSkyGUI ballChaseGUI = new BallChaseAndNightSkyGUI();
-        JFrame frm = new JFrame();
-        frm.setTitle("BallChaseGUI - " + PingPongUtils.GAME_VERSION);
-        frm.getContentPane().add(new BallChaseAndNightSkyGUI());
-        frm.setContentPane(ballChaseGUI);
         frm.setSize(displayWidth, displayHeight);
         frm.setResizable(false);
         frm.setVisible(true);
