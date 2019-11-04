@@ -20,6 +20,10 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     public static boolean isGameReset = false;
     private boolean shouldMoveBall = false;
 
+    // firework object
+    Firework myFirework = new Firework(50, 5, Color.WHITE);
+    Firework yourFirework = new Firework(1, 1, Color.WHITE);
+
     // mouse
     private int mouseX, mouseY;
 
@@ -42,7 +46,6 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     private boolean isGamePaused;
 
     private ArrayList<NightSkyBalls> balls = new ArrayList<>();
-    private Firework[] fireworks = new Firework[25];
     private Random rnd = new Random();
 
     public MainPingPongGUI() {
@@ -78,9 +81,6 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
      * When the mouse is clicked things in this method will happen.
      */
     private void mouseClicker() {
-        for (int i=0; i < fireworks.length; i++) {
-            fireworks[i] = new Firework (width, height);
-        }
         // makes the night sky balls move
         for (NightSkyBalls ball : balls) {
             ball.move();
@@ -116,14 +116,15 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.setPaint(new Color(rnd.nextInt(255), rnd.nextInt(255), rnd.nextInt(255)));
 
-        for(int i=0; i < fireworks.length; i++) {
-            fireworks[i] = new Firework(width, height);
-        }
-
         // draws the night sky balls
         for (NightSkyBalls ball : balls) {
             g2d.draw(ball.getEllipse());
         }
+
+        myFirework.edgeDetection();
+        myFirework.move();
+        myFirework.draw(g);
+
         // initial positioning
         if (first) {
             isGameReset = false;
@@ -256,11 +257,6 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             ballY += ballSpeedY;
 
             isGameReset = false;
-        }
-
-        for (int i=0; i < fireworks.length; i++) {
-//            fireworks[i].step(); //Calculate Arithmetic
-//            fireworks[i].drawFirework(getGraphics()); //Draw to the Canvas
         }
 
         // makes the ball move

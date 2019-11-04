@@ -1,112 +1,65 @@
 package me.maxish0t.pingpong.gui;
 
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.Random;
+import java.awt.geom.Ellipse2D;
 
-public class Firework implements MouseListener {
+public class Firework {
 
     /**
-     * Firework variables
+     * Object Variables
      */
-    private float x;
-    private float y;
-    private Color color;
-    private float diameter;
-    private float xSpeed;
-    private float ySpeed;
-    private float gravity;
-    public static int count = 25; // Amount of Fireworks
 
     /**
-     * Random Color R G B
+     * Firework Variables
      */
-    Random randomColor = new Random();
-    int colorR = randomColor.nextInt(255);
-    int colorG = randomColor.nextInt(255);
-    int colorB = randomColor.nextInt(255);
-
-    Random randomFirework = new Random();
-    Random randomSpeed = new Random();
+    private static float x;
+    private static float y;
+    private static Color color;
+    private static float diameter;
+    private static float xSpeed;
+    private static float ySpeed;
+    private static float width = 1600, height = 900;
 
     /**
      * Firework Constructor
-     * @param width
-     * @param height
      */
-    public Firework(int width, int height) {
-        this.x = getMouseX(false);
-        this.y = getMouseY(false);
-        this.color = new Color(colorR, colorG, colorB);
-        //int fireworkRanPos = randomFirework.nextInt(width*1/25);
-        this.diameter = 5F;
-        this.xSpeed = 3F;
-        this.ySpeed = 3F;
-        gravity = 0.5F;
+    public Firework(float xPosition, float yPosition, Color fireworkColor) {
+        this.x = xPosition;
+        this.y = yPosition;
+        this.color = fireworkColor;
+        this.diameter = 10F;
+        this.xSpeed = 5.0F;
+        this.ySpeed = 5.0F;
     }
 
     /**
-     * Renders a Firework to the screen.
-     * @param graphics
+     * Ball Movement
      */
-    public void drawFirework(Graphics graphics) {
-        Ball drawFirework = new Ball(x, y, diameter, Color.WHITE);
-        drawFirework.drawBall(graphics);
-    }
-
-    public void step() {
-        // Increasing x & y by their speeds so they move.
+    public static void move() {
         x += xSpeed;
         y += ySpeed;
-
-        // Changing gravity of the firework but not changing the original pos
-        ySpeed += gravity;
     }
 
     /**
-     * Gets the position of the MouseX.
-     * @param debugPosition
-     * @return
+     * Edge Detection
      */
-    private int getMouseX(boolean debugPosition) {
-        PointerInfo pointerInfo = MouseInfo.getPointerInfo();
-        Point point = pointerInfo.getLocation();
-        int xMousePosition = (int) point.getX();
-        if (debugPosition) {
-            System.out.println("X Mouse Position is: " + xMousePosition);
+    public static void edgeDetection() {
+        if (x+xSpeed-diameter/2 < 0 || x+xSpeed+diameter/2 > width) {
+            xSpeed *= -1;
         }
-        return xMousePosition;
+        if (y+ySpeed-diameter/2 < 0 || y+ySpeed+diameter/2 > height) {
+            ySpeed *= -1;
+        }
     }
 
     /**
-     * Gets the position of the MouseY.
-     * @param debugPosition
-     * @return
+     * Draw Firework
      */
-    private int getMouseY(boolean debugPosition) {
-        PointerInfo pointerInfo = MouseInfo.getPointerInfo();
-        Point point = pointerInfo.getLocation();
-        int yMousePosition = (int) point.getY();
-        if (debugPosition) {
-            System.out.println("Y Mouse Position is: " + yMousePosition);
-        }
-        return yMousePosition;
+    public static void draw(Graphics graphics) {
+        Graphics2D g2d = (Graphics2D) graphics;
+        Ellipse2D ball = new Ellipse2D.Double(x, y, diameter, diameter);
+        g2d.setColor(color);
+        g2d.fill(ball);
     }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {} // Unused
-
-    @Override
-    public void mousePressed(MouseEvent e) {} // Unused
-
-    @Override
-    public void mouseReleased(MouseEvent e) {} // Unused
-
-    @Override
-    public void mouseEntered(MouseEvent e) {} // Unused
-
-    @Override
-    public void mouseExited(MouseEvent e) {} // Unused
 
 }
