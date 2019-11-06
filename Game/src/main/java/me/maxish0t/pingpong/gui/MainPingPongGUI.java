@@ -132,9 +132,11 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             g2d.draw(ball.getEllipse());
         }
 
-        Firework.edgeDetection();
-        Firework.move();
-        Firework.draw(g);
+        for (int i = 0; i < fireworks.length; i++) {
+            fireworks[i].edgeDetection();
+            fireworks[i].move();
+            fireworks[i].draw(g);
+        }
 
         // initial positioning
         if (first) {
