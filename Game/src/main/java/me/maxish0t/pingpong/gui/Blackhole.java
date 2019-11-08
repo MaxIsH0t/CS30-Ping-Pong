@@ -5,10 +5,10 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.geom.Ellipse2D;
 
-public class Firework implements MouseListener {
+public class Blackhole implements MouseListener {
 
     /**
-     * Firework Variables
+     * Blackhole Variables
      */
     private static float x;
     private static float y;
@@ -27,19 +27,18 @@ public class Firework implements MouseListener {
     int B= (int)(Math.random()*256);
 
     /**
-     * Firework Constructor
+     * Blackhole Constructor
      */
-    public Firework(float xPosition, float yPosition) {
+    public Blackhole() {
         this.x = MainPingPongGUI.mouseX;
         this.y = MainPingPongGUI.mouseY;
         this.color = new Color(R, G, B);;
-
-        float minDiameter = width * 1/27.7777777F;
-
-        this.diameter = 25.0F;
-        this.xSpeed = 5.0F;
-        this.ySpeed = 5.0F;
-        this.gravity = 0.5F;
+        float minDiameter = (float) (width*1/27.77777777); // Value = 18
+        float maxDiameter = width*1/25; //Value = 20
+        this.diameter = (float) (Math.random() * maxDiameter-minDiameter + maxDiameter);
+        this.xSpeed =  (float) (Math.random() * -5 + 5);
+        this.ySpeed = (float) (Math.random() * -5 + 5);
+        gravity = 0.5F;
     }
 
     /**
@@ -61,10 +60,19 @@ public class Firework implements MouseListener {
         if (y + ySpeed - diameter / 2 < 0 || y + ySpeed + diameter + 50 / 2 > height) {
             ySpeed *= -1;
         }
+
+        if (x == MainPingPongGUI.ballX) {
+            MainPingPongGUI.ballX = width / 2 - MainPingPongGUI.ballSize / 2;
+            MainPingPongGUI.ballY = height / 2 - MainPingPongGUI.ballSize / 2;
+        }
+        if (y == MainPingPongGUI.ballY) {
+            MainPingPongGUI.ballX = width / 2 - MainPingPongGUI.ballSize / 2;
+            MainPingPongGUI.ballY = height / 2 - MainPingPongGUI.ballSize / 2;
+        }
     }
 
     /**
-     * Draw Firework
+     * Draw Blackhole
      */
     public static void draw(Graphics graphics) {
         Graphics2D g2d = (Graphics2D) graphics;

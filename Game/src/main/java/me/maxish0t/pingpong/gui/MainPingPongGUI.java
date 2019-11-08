@@ -10,9 +10,6 @@ import java.util.HashSet;
 import java.util.Random;
 import javax.swing.*;
 
-import static me.maxish0t.pingpong.gui.Firework.draw;
-import static me.maxish0t.pingpong.gui.Firework.edgeDetection;
-
 public class MainPingPongGUI extends JPanel implements KeyListener, ActionListener, MouseListener {
 
     private String  BORDER = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
@@ -24,11 +21,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     private boolean shouldMoveBall = false;
 
     // Exploding Firework List
-    Firework[] fireworks = new Firework[25];
-
-    // firework object
-    //Firework myFirework = new Firework(50, 5);
-    //Firework yourFirework = new Firework(1, 1);
+    Blackhole[] fireworks = new Blackhole[25];
 
     // mouse
     public static int mouseX, mouseY;
@@ -40,7 +33,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     private int       inset = 10;
 
     // ball
-    private double ballX, ballY, ballSpeedX = 3, ballSpeedY = 3, ballSize = 20;
+    public static double ballX, ballY, ballSpeedX = 3, ballSpeedY = 3, ballSize = 20;
 
     // score
     private int scoreTop, scoreBottom;
@@ -83,9 +76,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         }
 
         // fireworks
-        for (int i = 0; i < fireworks.length; i++) {
-            fireworks[i] = new Firework(50, 5);
-        }
+
     }
 
     /**
@@ -133,6 +124,8 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         }
 
         for (int i = 0; i < fireworks.length; i++) {
+            fireworks[i] = new Blackhole();
+
             fireworks[i].edgeDetection();
             fireworks[i].move();
             fireworks[i].draw(g);
