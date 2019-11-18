@@ -1,6 +1,5 @@
 package me.maxish0t.pingpong.gui;
 
-import me.maxish0t.pingpong.PingPong;
 import me.maxish0t.pingpong.util.Constants;
 
 import java.awt.geom.Ellipse2D;

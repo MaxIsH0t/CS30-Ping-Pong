@@ -1,6 +1,5 @@
 package me.maxish0t.pingpong.gui;
 
-import me.maxish0t.pingpong.PingPong;
 import me.maxish0t.pingpong.draw.RenderPaddles;
 import me.maxish0t.pingpong.draw.DrawUtils;
 import me.maxish0t.pingpong.draw.TextUtils;

@@ -1,6 +1,5 @@
 package me.maxish0t.pingpong.draw;
 
-import me.maxish0t.pingpong.PingPong;
 import me.maxish0t.pingpong.util.Constants;
 
 import java.awt.*;

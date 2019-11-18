@@ -1,7 +1,5 @@
 package me.maxish0t.pingpong.util;
 
-import me.maxish0t.pingpong.PingPong;
-
 public class ScreenSizeTester {
 
     // checks if the screen is too small
