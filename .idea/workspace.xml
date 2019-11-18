@@ -10,13 +10,7 @@
       <change beforePath="$PROJECT_DIR$/../.gradle/3.3/taskArtifacts/taskArtifacts.lock" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../CHANGELOG.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/PingPong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/PingPong.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/gui/MainPingPongGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/gui/MainPingPongGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/gui/NightSkyBalls.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/gui/NightSkyBalls.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/util/DrawUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/draw/DrawUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/util/PingPongUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/util/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/util/ScreenSizeTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/util/ScreenSizeTester.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/util/TextUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/draw/TextUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../build.gradle" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../gradle.properties" beforeDir="false" />
@@ -58,7 +52,35 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CS30-Ping-Pong" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CS30-Ping-Pong" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CS30-Ping-Pong" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CS30-Ping-Pong" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CS30-Ping-Pong" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build setup" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -105,20 +127,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.PingPong">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="me.maxish0t.pingpong.Main" />
-      <module name="Game.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="me.maxish0t.pingpong.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Gradle.Game [build]">
     <configuration name="PingPong" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="me.maxish0t.pingpong.PingPong" />
       <module name="CS30-Ping-Pong.main" />
@@ -132,6 +141,44 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CS30-Ping-Pong [init]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="init" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="CS30-Ping-Pong [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="Game [assemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -144,25 +191,6 @@
         <option name="taskNames">
           <list>
             <option value="assemble" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Game [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="buildDependents" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -190,19 +218,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
       <item itemvalue="Application.PingPong" />
       <item itemvalue="Gradle.Game [assemble]" />
       <item itemvalue="Gradle.Game [build]" />
-      <item itemvalue="Gradle.Game [buildDependents]" />
+      <item itemvalue="Gradle.CS30-Ping-Pong [run]" />
+      <item itemvalue="Gradle.CS30-Ping-Pong [init]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.CS30-Ping-Pong [init]" />
+        <item itemvalue="Gradle.CS30-Ping-Pong [run]" />
+        <item itemvalue="Gradle.Game [build]" />
         <item itemvalue="Application.PingPong" />
         <item itemvalue="Gradle.Game [assemble]" />
-        <item itemvalue="Gradle.Game [buildDependents]" />
-        <item itemvalue="Gradle.Game [build]" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>

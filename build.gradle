@@ -1,8 +1,15 @@
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'application'
+plugins {
+    id 'java'
+    id 'application'
+}
 
 mainClassName = "me.maxish0t.pingpong.PingPong"
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'me.maxish0t.pingpong.PingPong'
+    }
+}
 
 repositories {
     mavenCentral()
