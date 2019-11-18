@@ -6,10 +6,10 @@ public class ScreenSizeTester {
 
     // checks if the screen is too small
     public static void checker() {
-        String fullSize = "DisplayWidth= " + PingPong.displayWidth + "; DisplayHeight= " + PingPong.displayHeight;
+        String fullSize = "DisplayWidth= " + Constants.displayWidth + "; DisplayHeight= " + Constants.displayHeight;
         System.out.println(fullSize);
-        float checker = PingPong.displayWidth / PingPong.displayHeight;
-        if (PingPong.displayWidth < 500) {
+        float checker = Constants.displayWidth / Constants.displayHeight;
+        if (Constants.displayWidth < 500) {
             System.out.println("ERROR: This program will not work on this display, the width is too small.");
             System.exit(5);
         } else if (checker < 0.5625) {

@@ -2,7 +2,14 @@ package me.maxish0t.pingpong.util;
 
 import java.util.logging.Logger;
 
-public class PingPongUtils {
+public class Constants {
+
+    // FRAME WIDTH / HEIGHT
+    public static final int displayWidth = 1600;
+    public static final int displayHeight = 900;
+
+    // DEBUG TEXT TO CONSOLE
+    public static boolean debugStrings = true;
 
     // LOGGER
     public static Logger LOGGER = Logger.getLogger("PingPong");

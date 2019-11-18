@@ -1,6 +1,7 @@
 package me.maxish0t.pingpong.gui;
 
 import me.maxish0t.pingpong.PingPong;
+import me.maxish0t.pingpong.util.Constants;
 
 import java.awt.geom.Ellipse2D;
 
@@ -15,8 +16,8 @@ public class NightSkyBalls {
     int xDirection = 1;
     int yDirection = 1;
     int diameter;
-    int width = PingPong.displayWidth;
-    int height = PingPong.displayHeight;
+    int width = Constants.displayWidth;
+    int height = Constants.displayHeight;
 
     public NightSkyBalls(int randomStartXPos, int randomStartYPos, int Diam) {
         super();

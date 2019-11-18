@@ -1,4 +1,4 @@
-package me.maxish0t.pingpong.util;
+package me.maxish0t.pingpong.draw;
 
 import javax.swing.*;
 import java.awt.*;
