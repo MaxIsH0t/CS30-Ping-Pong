@@ -3,6 +3,7 @@ package me.maxish0t.pingpong.gui;
 import me.maxish0t.pingpong.draw.RenderPaddles;
 import me.maxish0t.pingpong.draw.DrawUtils;
 import me.maxish0t.pingpong.draw.TextUtils;
+import me.maxish0t.pingpong.util.BorderAlgorithm;
 import me.maxish0t.pingpong.util.Constants;
 
 import java.awt.*;
@@ -17,7 +18,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     /**
      * Frame Variables
      */
-    private String  BORDER = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
+    private String  BORDER = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
     public static double  ballX, ballY, ballSpeedX = 3, ballSpeedY = 3, ballSize = 20;
     private int           padH  = 10, padW = 100, bottomPadX, topPadX, inset = 10;
     public static boolean isGameReset = false;
@@ -25,9 +26,9 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     private boolean       isBGWhite, isBGBlack;
     private int           scoreTop, scoreBottom;
     public static int     mouseX, mouseY;
-    private int           height, width;
+    public static int     height, width;
     private boolean       isGamePaused;
-    private final int     SPEED = 5;
+    private final int     SPEED = 4;
     private boolean       first;
 
     /**
@@ -58,6 +59,8 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
                 mouseClicker();
             }
         });
+
+        BorderAlgorithm.drawBorder(BORDER);
 
         first = true;
         t.setInitialDelay(100);
@@ -149,7 +152,8 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             // ball
             DrawUtils.drawCircle(ballX, ballY, ballSize, Color.WHITE, g);
 
-            TextUtils.drawText(BORDER, 0, height / 2, 35, Color.WHITE, g);
+            TextUtils.drawText(BORDER, 0, MainPingPongGUI.height / 2, 35, Color.WHITE, g);
+
             String scoreT = "AI: " + new Integer(scoreTop).toString();
             String scoreB = "Player: " + new Integer(scoreBottom).toString();
             TextUtils.drawText(scoreT, width - 105, height / 2 - 30, 30, Color.WHITE, g);

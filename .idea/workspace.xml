@@ -10,7 +10,8 @@
       <change beforePath="$PROJECT_DIR$/../.gradle/3.3/taskArtifacts/taskArtifacts.lock" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../CHANGELOG.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/PingPong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/PingPong.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/gui/MainPingPongGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/gui/MainPingPongGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../build.gradle" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../gradle.properties" beforeDir="false" />
@@ -226,9 +227,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Game [build]" />
         <item itemvalue="Gradle.CS30-Ping-Pong [init]" />
         <item itemvalue="Gradle.CS30-Ping-Pong [run]" />
-        <item itemvalue="Gradle.Game [build]" />
         <item itemvalue="Application.PingPong" />
         <item itemvalue="Gradle.Game [assemble]" />
       </list>
