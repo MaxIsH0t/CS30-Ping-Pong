@@ -12,6 +12,7 @@ public class DrawUtils
     private static JButton startButton = new JButton();
     private static JButton backgroundButton = new JButton();
     private static JButton backgroundButton2 = new JButton();
+    private static JButton playButton = new JButton();
 
     // name box
     private static TextField nameBox = new TextField();
@@ -81,6 +82,18 @@ public class DrawUtils
         backgroundButton2.setBackground(mainColor);
         backgroundButton2.addActionListener(actionListener);
         jPanel.add(backgroundButton2);
+    }
+
+    /**
+     * Draw a Change Color Background Button
+     */
+    public static void drawPlayButton(String buttonText, int x, int y, int width, int height, Color mainColor, ActionListener actionListener, JPanel jPanel) {
+        playButton.setText(buttonText);
+        playButton.setBounds(x, y, width, height);
+        playButton.setLocation(x, y);
+        playButton.setBackground(mainColor);
+        playButton.addActionListener(actionListener);
+        jPanel.add(playButton);
     }
 
     /**

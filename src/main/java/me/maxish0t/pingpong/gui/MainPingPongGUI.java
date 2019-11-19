@@ -30,6 +30,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     private boolean       isGamePaused;
     private final int     SPEED = 4;
     private boolean       first;
+    private boolean       hasPlayedMenu = false;
 
     /**
      * Lists & Arrays
@@ -128,114 +129,125 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             fireworks[i].draw(g);
         }
 
-        // initial positioning
-        if (first) {
-            isGameReset = false;
-            bottomPadX = width / 2 - padW / 2;
-            topPadX = bottomPadX;
-            ballX = width / 2 - ballSize / 2;
-            ballY = height / 2 - ballSize / 2;
-            first = false;
-        }
+        if (!hasPlayedMenu) {
+            DrawUtils.drawRectangle(0, 0, 100, 100, Color.WHITE, g);
 
-        if (isBGBlack == true && isBGWhite == false) {
-            setBackground(Color.BLACK);
-
-            // bottom pad
-            RenderPaddles bottomPaddle = new RenderPaddles(bottomPadX, height - padH - inset, padW, padH, Color.WHITE, g);
-            bottomPaddle.renderPaddle();
-
-            // top pad
-            RenderPaddles topPaddle = new RenderPaddles(topPadX, inset, padW, padH, Color.WHITE, g);
-            topPaddle.renderPaddle();
-
-            // ball
-            DrawUtils.drawCircle(ballX, ballY, ballSize, Color.WHITE, g);
-
-            TextUtils.drawText(BORDER, 0, MainPingPongGUI.height / 2, 35, Color.WHITE, g);
-
-            String scoreT = "AI: " + new Integer(scoreTop).toString();
-            String scoreB = "Player: " + new Integer(scoreBottom).toString();
-            TextUtils.drawText(scoreT, width - 105, height / 2 - 30, 30, Color.WHITE, g);
-            TextUtils.drawText(scoreB, width - 125, height / 2 + 30, 30, Color.WHITE, g);
-        }
-
-        if (isBGWhite == true && isBGBlack == false) {
-            setBackground(Color.WHITE);
-
-            // bottom pad
-            RenderPaddles bottomPaddle = new RenderPaddles(bottomPadX, height - padH - inset, padW, padH, Color.BLACK, g);
-            bottomPaddle.renderPaddle();
-
-            // top pad
-            RenderPaddles topPaddle = new RenderPaddles(topPadX, inset, padW, padH, Color.BLACK, g);
-            topPaddle.renderPaddle();
-
-            // ball
-            DrawUtils.drawCircle(ballX, ballY, ballSize, Color.BLACK, g);
-
-            TextUtils.drawText(BORDER, 0, height / 2, 35, Color.BLACK, g);
-            String scoreT = "AI: " + new Integer(scoreTop).toString();
-            String scoreB = "Player: " + new Integer(scoreBottom).toString();
-            TextUtils.drawText(scoreT, width - 105, height / 2 - 30, 30, Color.BLACK, g);
-            TextUtils.drawText(scoreB, width - 125, height / 2 + 30, 30, Color.BLACK, g);
-        }
-
-        // reset button
-        DrawUtils.drawResetButton("RESET", 10, height / 2 + 30, 120, 50, Color.YELLOW, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+            DrawUtils.drawPlayButton("Press Here To Play", 10, 10, 100, 100, Color.RED, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    hasPlayedMenu = true;
+                }
+            }, this);
+        } else if (hasPlayedMenu) {
+            // initial positioning
+            if (first) {
+                isGameReset = false;
+                bottomPadX = width / 2 - padW / 2;
+                topPadX = bottomPadX;
                 ballX = width / 2 - ballSize / 2;
                 ballY = height / 2 - ballSize / 2;
-
-                ballX += ballSpeedX;
-                ballY += ballSpeedY;
-
-                scoreBottom = 0;
-                scoreTop = 0;
+                first = false;
             }
-        }, this);
 
-        // exit button
-        DrawUtils.drawExitButton("EXIT", 10, height / 2 + 90, 120, 50, Color.YELLOW, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(5);
+            if (isBGBlack == true && isBGWhite == false) {
+                setBackground(Color.BLACK);
+
+                // bottom pad
+                RenderPaddles bottomPaddle = new RenderPaddles(bottomPadX, height - padH - inset, padW, padH, Color.WHITE, g);
+                bottomPaddle.renderPaddle();
+
+                // top pad
+                RenderPaddles topPaddle = new RenderPaddles(topPadX, inset, padW, padH, Color.WHITE, g);
+                topPaddle.renderPaddle();
+
+                // ball
+                DrawUtils.drawCircle(ballX, ballY, ballSize, Color.WHITE, g);
+
+                TextUtils.drawText(BORDER, 0, MainPingPongGUI.height / 2, 35, Color.WHITE, g);
+
+                String scoreT = "AI: " + new Integer(scoreTop).toString();
+                String scoreB = "Player: " + new Integer(scoreBottom).toString();
+                TextUtils.drawText(scoreT, width - 105, height / 2 - 30, 30, Color.WHITE, g);
+                TextUtils.drawText(scoreB, width - 125, height / 2 + 30, 30, Color.WHITE, g);
             }
-        }, this);
 
-        // white button
-        DrawUtils.drawWhiteButton("WHITE", 10, height / 2 - 90, 120, 50, Color.YELLOW, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                isBGBlack = false;
-                isBGWhite = true;
+            if (isBGWhite == true && isBGBlack == false) {
+                setBackground(Color.WHITE);
+
+                // bottom pad
+                RenderPaddles bottomPaddle = new RenderPaddles(bottomPadX, height - padH - inset, padW, padH, Color.BLACK, g);
+                bottomPaddle.renderPaddle();
+
+                // top pad
+                RenderPaddles topPaddle = new RenderPaddles(topPadX, inset, padW, padH, Color.BLACK, g);
+                topPaddle.renderPaddle();
+
+                // ball
+                DrawUtils.drawCircle(ballX, ballY, ballSize, Color.BLACK, g);
+
+                TextUtils.drawText(BORDER, 0, height / 2, 35, Color.BLACK, g);
+                String scoreT = "AI: " + new Integer(scoreTop).toString();
+                String scoreB = "Player: " + new Integer(scoreBottom).toString();
+                TextUtils.drawText(scoreT, width - 105, height / 2 - 30, 30, Color.BLACK, g);
+                TextUtils.drawText(scoreB, width - 125, height / 2 + 30, 30, Color.BLACK, g);
             }
-        }, this);
 
-        // black button
-        DrawUtils.drawBlackButton("BLACK", 10, height / 2 - 150, 120, 50, Color.YELLOW, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (isBGWhite == true) {
-                    isBGWhite = false;
-                    isBGBlack = true;
-                } else {
-                    isBGBlack = true;
+            // reset button
+            DrawUtils.drawResetButton("RESET", 10, height / 2 + 30, 120, 50, Color.YELLOW, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    ballX = width / 2 - ballSize / 2;
+                    ballY = height / 2 - ballSize / 2;
+
+                    ballX += ballSpeedX;
+                    ballY += ballSpeedY;
+
+                    scoreBottom = 0;
+                    scoreTop = 0;
                 }
-            }
-        }, this);
+            }, this);
 
-        // player name
-        DrawUtils.drawPlayerNameBox("Put player name here", 1, 10, 100, 50, Color.BLUE, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            }
-        }, this);
+            // exit button
+            DrawUtils.drawExitButton("EXIT", 10, height / 2 + 90, 120, 50, Color.YELLOW, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    System.exit(5);
+                }
+            }, this);
 
-        // game reset
-        if (isGameReset == true) {
-            TextUtils.drawText("Press the button to reset the ball.", width / 2, 150 * 2, 40, Color.WHITE, g);
+            // white button
+            DrawUtils.drawWhiteButton("WHITE", 10, height / 2 - 90, 120, 50, Color.YELLOW, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    isBGBlack = false;
+                    isBGWhite = true;
+                }
+            }, this);
+
+            // black button
+            DrawUtils.drawBlackButton("BLACK", 10, height / 2 - 150, 120, 50, Color.YELLOW, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (isBGWhite == true) {
+                        isBGWhite = false;
+                        isBGBlack = true;
+                    } else {
+                        isBGBlack = true;
+                    }
+                }
+            }, this);
+
+            // player name
+            DrawUtils.drawPlayerNameBox("Put player name here", 1, 10, 100, 50, Color.BLUE, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                }
+            }, this);
+
+            // game reset
+            if (isGameReset == true) {
+                TextUtils.drawText("Press the button to reset the ball.", width / 2, 150 * 2, 40, Color.WHITE, g);
+            }
         }
     }
 
