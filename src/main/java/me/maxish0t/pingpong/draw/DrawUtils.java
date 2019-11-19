@@ -12,7 +12,7 @@ public class DrawUtils
     private static JButton startButton = new JButton();
     private static JButton backgroundButton = new JButton();
     private static JButton backgroundButton2 = new JButton();
-    private static JButton playButton = new JButton();
+    public static JButton playButton = new JButton();
 
     // name box
     private static TextField nameBox = new TextField();

@@ -121,24 +121,23 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             g2d.draw(ball.getEllipse());
         }
 
-        for (int i = 0; i < fireworks.length; i++) {
-            fireworks[i] = new Blackhole();
-
-            fireworks[i].edgeDetection();
-            fireworks[i].move();
-            fireworks[i].draw(g);
-        }
-
         if (!hasPlayedMenu) {
-            DrawUtils.drawRectangle(0, 0, 100, 100, Color.WHITE, g);
-
-            DrawUtils.drawPlayButton("Press Here To Play", 10, 10, 100, 100, Color.RED, new ActionListener() {
+            DrawUtils.drawPlayButton("Press Here To Play", (Constants.displayWidth / 2) - (500 / 2), 10, 500, 100, Color.RED, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     hasPlayedMenu = true;
+                    DrawUtils.playButton.setVisible(false);
                 }
             }, this);
         } else if (hasPlayedMenu) {
+            for (int i = 0; i < fireworks.length; i++) {
+                fireworks[i] = new Blackhole();
+
+                fireworks[i].edgeDetection();
+                fireworks[i].move();
+                fireworks[i].draw(g);
+            }
+
             // initial positioning
             if (first) {
                 isGameReset = false;
