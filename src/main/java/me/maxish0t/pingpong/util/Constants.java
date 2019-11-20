@@ -9,7 +9,7 @@ public class Constants {
     public static final int displayHeight = 900;
 
     // DEBUG TEXT TO CONSOLE
-    public static boolean debugStrings = true;
+    public static boolean debugStrings = false;
 
     // LOGGER
     public static Logger LOGGER = Logger.getLogger("PingPong");

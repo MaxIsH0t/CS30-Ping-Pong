@@ -8,7 +8,7 @@ public class BorderAlgorithm {
         if (PingPong.frm.getWidth() < Constants.displayWidth) {
             int i = 2;
             while (i <= 200) {
-                System.out.print(string);
+                //System.out.print(string);
                 i += 2;  // add 2 to i
             }
         }

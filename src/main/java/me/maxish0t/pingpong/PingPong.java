@@ -21,19 +21,16 @@ public class PingPong {
 
     public static JFrame frm = new JFrame();
 
-    // main program that runs when ran
-    public static void main(String[] args) throws IOException, URISyntaxException {
-        // Loads the main GUI for the Ping Pong Game
+    public static void main(String[] args) {
         mainGUI();
-
-        // Screen Size Checker
         ScreenSizeTester.checker();
 
+        System.out.println("------------------------------------------------------------------");
         Constants.LOGGER.info(Constants.GAME_NAME + " has been loaded on version " + Constants.GAME_VERSION);
+        System.out.println("------------------------------------------------------------------");
     }
 
-    // main frame
-    private static void mainGUI() throws IOException, URISyntaxException {
+    private static void mainGUI() {
         MainPingPongGUI mainPingPongGUI = new MainPingPongGUI();
         frm.setTitle("Ping Pong - " + Constants.GAME_VERSION);
         frm.setContentPane(mainPingPongGUI);
@@ -45,9 +42,19 @@ public class PingPong {
 
         // Sets the Icon from the resources
         URL res = Constants.class.getClassLoader().getResource("icon.png");
-        File file = Paths.get(res.toURI()).toFile();
+        File file = null;
+        try {
+            file = Paths.get(res.toURI()).toFile();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
         String absolutePath = file.getAbsolutePath();
-        BufferedImage myImg = ImageIO.read(new File(absolutePath));
+        BufferedImage myImg = null;
+        try {
+            myImg = ImageIO.read(new File(absolutePath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         frm.setIconImage(myImg);
     }
 
