@@ -122,6 +122,6 @@ public class DrawUtils
      * Draw an Image onto the frame.
      */
     public static void drawImage() {
-        // TODO 
+        // TODO
     }
 }
