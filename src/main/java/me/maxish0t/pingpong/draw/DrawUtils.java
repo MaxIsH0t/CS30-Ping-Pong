@@ -117,4 +117,11 @@ public class DrawUtils
         g2d.setColor(color);
         g2d.fill(ball);
     }
+
+    /**
+     * Draw an Image onto the frame.
+     */
+    public static void drawImage() {
+        // TODO 
+    }
 }
