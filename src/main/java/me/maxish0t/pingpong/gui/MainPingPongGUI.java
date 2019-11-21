@@ -2,15 +2,24 @@ package me.maxish0t.pingpong.gui;
 
 import me.maxish0t.pingpong.draw.RenderPaddles;
 import me.maxish0t.pingpong.draw.DrawUtils;
+import me.maxish0t.pingpong.draw.RenderTextTypeBox;
 import me.maxish0t.pingpong.draw.TextUtils;
 import me.maxish0t.pingpong.util.BorderAlgorithm;
 import me.maxish0t.pingpong.util.Constants;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
+import java.util.TimerTask;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class MainPingPongGUI extends JPanel implements KeyListener, ActionListener, MouseListener {
@@ -30,6 +39,11 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     private final int     SPEED = 4;
     private boolean       first;
     private boolean       hasPlayedMenu = false;
+    RenderTextTypeBox renderPlayerNameTF = new RenderTextTypeBox("Please type your name", 10, 10, width / 2 - 100, 30, Color.GRAY, new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        }
+    });
 
     /**
      * Lists & Arrays
@@ -56,6 +70,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
         addMouseListener(this);
+        add(RenderTextTypeBox.jTextField);
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -129,8 +144,27 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
 
         if(VariablesGUI.timer >= 0) {
             VariablesGUI.timer--;
+            RenderTextTypeBox.jTextField.setVisible(false);
             DrawUtils.drawRectangle(0, 0, width, height, Color.GRAY, g);
             TextUtils.drawText("Welcome to Max's PingPong Game!", (width / 2) - (200 * 2), height / 2, 50, Color.WHITE, g);
+
+            URL res = Constants.class.getClassLoader().getResource("logo.png");
+            File file = null;
+            try {
+                file = Paths.get(res.toURI()).toFile();
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
+            String absolutePath = file.getAbsolutePath();
+            BufferedImage myImg = null;
+            try {
+                myImg = ImageIO.read(new File(absolutePath));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            g.drawImage(myImg, 10, 10, null);
+
             if (VariablesGUI.fade < 1.0F) {
                 VariablesGUI.fade += 0.03F;
             }
@@ -138,6 +172,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             if (!hasPlayedMenu) {
                 String string = "How to play?";
                 String string2 = "- You use the left and right keys on the keyboard.";
+
                 TextUtils.drawText(string, (width / 2) - (250 / 2), 250, 50, Color.WHITE, g);
                 TextUtils.drawText(string2, (width / 2) - (480), 300, 50, Color.WHITE, g);
 
@@ -149,14 +184,9 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
                     }
                 }, this);
             } else if (hasPlayedMenu) {
-                /**
-                 for (int i = 0; i < fireworks.length; i++) {
-                 fireworks[i] = new Blackhole();
 
-                 fireworks[i].edgeDetection();
-                 fireworks[i].move();
-                 fireworks[i].draw(g);
-                 }**/
+                scoreBottom = 0;
+                scoreTop = 0;
 
                 // initial positioning
                 if (first) {
@@ -168,61 +198,45 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
                     first = false;
                 }
 
-                if (isBGBlack == true && isBGWhite == false) {
-                    setBackground(Color.BLACK);
+                setBackground(Color.BLACK);
 
-                    // bottom pad
-                    RenderPaddles bottomPaddle = new RenderPaddles(bottomPadX, height - padH - inset, padW, padH, new Color(R, G, B), g);
-                    bottomPaddle.renderPaddle();
+                // bottom pad
+                RenderPaddles bottomPaddle = new RenderPaddles(bottomPadX, height - padH - inset, padW, padH, new Color(R, G, B), g);
+                bottomPaddle.renderPaddle();
 
-                    // top pad
-                    RenderPaddles topPaddle = new RenderPaddles(topPadX, inset, padW, padH, new Color(R, G, B), g);
-                    topPaddle.renderPaddle();
+                // top pad
+                RenderPaddles topPaddle = new RenderPaddles(topPadX, inset, padW, padH, new Color(R, G, B), g);
+                topPaddle.renderPaddle();
 
-                    // ball
-                    DrawUtils.drawCircle(ballX, ballY, ballSize, new Color(R, G, B), g);
+                // ball
+                DrawUtils.drawCircle(ballX, ballY, ballSize, new Color(R, G, B), g);
 
-                    TextUtils.drawText(BORDER, 0, MainPingPongGUI.height / 2, 35, new Color(R, G, B), g);
+                TextUtils.drawText(BORDER, 0, MainPingPongGUI.height / 2, 35, new Color(R, G, B), g);
 
-                    String scoreT = "AI: " + new Integer(scoreTop).toString();
-                    String scoreB = "Player: " + new Integer(scoreBottom).toString();
-                    TextUtils.drawText(scoreT, width - 105, height / 2 - 30, 30, Color.WHITE, g);
-                    TextUtils.drawText(scoreB, width - 125, height / 2 + 30, 30, Color.WHITE, g);
-                }
-
-                if (isBGWhite == true && isBGBlack == false) {
-                    setBackground(Color.WHITE);
-
-                    // bottom pad
-                    RenderPaddles bottomPaddle = new RenderPaddles(bottomPadX, height - padH - inset, padW, padH, Color.WHITE, g);
-                    bottomPaddle.renderPaddle();
-
-                    // top pad
-                    RenderPaddles topPaddle = new RenderPaddles(topPadX, inset, padW, padH, Color.WHITE, g);
-                    topPaddle.renderPaddle();
-
-                    // ball
-                    DrawUtils.drawCircle(ballX, ballY, ballSize, Color.WHITE, g);
-
-                    TextUtils.drawText(BORDER, 0, height / 2, 35, Color.BLACK, g);
-                    String scoreT = "AI: " + new Integer(scoreTop).toString();
-                    String scoreB = "Player: " + new Integer(scoreBottom).toString();
-                    TextUtils.drawText(scoreT, width - 105, height / 2 - 30, 30, Color.BLACK, g);
-                    TextUtils.drawText(scoreB, width - 125, height / 2 + 30, 30, Color.BLACK, g);
-                }
+                String scoreT = "AI: " + new Integer(scoreTop).toString();
+                String scoreB = "Player: " + new Integer(scoreBottom).toString();
+                TextUtils.drawText(scoreT, width - 105, height / 2 - 30, 30, Color.WHITE, g);
+                TextUtils.drawText(scoreB, width - 125, height / 2 + 30, 30, Color.WHITE, g);
 
                 // reset button
                 DrawUtils.drawResetButton("RESET", 10, height / 2 + 30, 120, 50, Color.YELLOW, new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        ballX = width / 2 - ballSize / 2;
-                        ballY = height / 2 - ballSize / 2;
+                        java.util.Timer timer = new java.util.Timer();
+                        timer.schedule(new TimerTask() {
+                            @Override
+                            public void run() {
+                                ballX = width / 2 - ballSize / 2;
+                                ballY = height / 2 - ballSize / 2;
 
-                        ballX += ballSpeedX;
-                        ballY += ballSpeedY;
+                                ballX += ballSpeedX;
+                                ballY += ballSpeedY;
 
-                        scoreBottom = 0;
-                        scoreTop = 0;
+                                scoreBottom = 0;
+                                scoreTop = 0;
+
+                            }
+                        }, 100);
                     }
                 }, this);
 
@@ -231,28 +245,6 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         System.exit(5);
-                    }
-                }, this);
-
-                // white button
-                DrawUtils.drawWhiteButton("WHITE", 10, height / 2 - 90, 120, 50, Color.YELLOW, new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        isBGBlack = false;
-                        isBGWhite = true;
-                    }
-                }, this);
-
-                // black button
-                DrawUtils.drawBlackButton("BLACK", 10, height / 2 - 150, 120, 50, Color.YELLOW, new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (isBGWhite == true) {
-                            isBGWhite = false;
-                            isBGBlack = true;
-                        } else {
-                            isBGBlack = true;
-                        }
                     }
                 }, this);
 

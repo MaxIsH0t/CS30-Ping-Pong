@@ -1,9 +1,19 @@
 package me.maxish0t.pingpong.draw;
 
+import me.maxish0t.pingpong.util.Constants;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.geom.Ellipse2D;
+import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Paths;
 
 public class DrawUtils
 {
@@ -118,10 +128,4 @@ public class DrawUtils
         g2d.fill(ball);
     }
 
-    /**
-     * Draw an Image onto the frame.
-     */
-    public static void drawImage() {
-        // TODO
-    }
 }
