@@ -9,8 +9,6 @@
       <change beforePath="$PROJECT_DIR$/../.gradle/3.3/taskArtifacts/taskArtifacts.bin" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../.gradle/3.3/taskArtifacts/taskArtifacts.lock" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../CHANGELOG.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/draw/DrawUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/draw/DrawUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/gui/MainPingPongGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/maxish0t/pingpong/gui/MainPingPongGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../build.gradle" beforeDir="false" />

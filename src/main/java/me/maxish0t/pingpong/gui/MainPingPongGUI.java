@@ -39,18 +39,12 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     private final int     SPEED = 4;
     private boolean       first;
     private boolean       hasPlayedMenu = false;
-    RenderTextTypeBox renderPlayerNameTF = new RenderTextTypeBox("Please type your name", 10, 10, width / 2 - 100, 30, Color.GRAY, new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-        }
-    });
 
     /**
      * Lists & Arrays
      */
     private HashSet<String> keys = new HashSet<String>();
     private Timer   t = new Timer(5, this);
-    Blackhole[] fireworks = new Blackhole[25];
     private ArrayList<NightSkyBalls> balls = new ArrayList<>();
     private Random rnd = new Random();
 
@@ -184,10 +178,6 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
                     }
                 }, this);
             } else if (hasPlayedMenu) {
-
-                scoreBottom = 0;
-                scoreTop = 0;
-
                 // initial positioning
                 if (first) {
                     isGameReset = false;
@@ -273,7 +263,6 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         if (ballY < 0) {
             ballSpeedY = -ballSpeedY;
             ++ scoreBottom;
-            System.out.println("Score for bottom paddle");
             isGameReset = true;
         }
 
