@@ -2,6 +2,9 @@ package me.maxish0t.pingpong;
 
 import me.maxish0t.pingpong.gui.MainPingPongGUI;
 import me.maxish0t.pingpong.util.Constants;
+import me.maxish0t.pingpong.util.OSChecker;
+import me.maxish0t.pingpong.util.logger.EnumConsoleColor;
+import me.maxish0t.pingpong.util.logger.PingPongLogger;
 import me.maxish0t.pingpong.util.ScreenSizeTester;
 
 import javax.imageio.ImageIO;
@@ -24,10 +27,9 @@ public class PingPong {
     public static void main(String[] args) {
         mainGUI();
         ScreenSizeTester.checker();
+        OSChecker.checkOS();
 
-        System.out.println("------------------------------------------------------------------");
-        Constants.LOGGER.info(Constants.GAME_NAME + " has been loaded on version " + Constants.GAME_VERSION);
-        System.out.println("------------------------------------------------------------------");
+        PingPongLogger.infoMessage(Constants.GAME_NAME + " has been loaded on version " + Constants.GAME_VERSION, EnumConsoleColor.ANSI_BLUE);
     }
 
     private static void mainGUI() {

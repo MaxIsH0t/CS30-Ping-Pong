@@ -130,7 +130,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         if(VariablesGUI.timer >= 0) {
             VariablesGUI.timer--;
             DrawUtils.drawRectangle(0, 0, width, height, Color.GRAY, g);
-            TextUtils.drawText("Welcome to MaxIsH0t's PingPong Game!", (width / 2) - (200 * 2), height / 2, 50, Color.WHITE, g);
+            TextUtils.drawText("Welcome to Max's PingPong Game!", (width / 2) - (200 * 2), height / 2, 50, Color.WHITE, g);
             if (VariablesGUI.fade < 1.0F) {
                 VariablesGUI.fade += 0.03F;
             }

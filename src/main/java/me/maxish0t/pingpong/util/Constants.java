@@ -11,9 +11,6 @@ public class Constants {
     // DEBUG TEXT TO CONSOLE
     public static boolean debugStrings = false;
 
-    // LOGGER
-    public static Logger LOGGER = Logger.getLogger("PingPong");
-
     // CONSTANTS
     public static final String GAME_NAME = "PingPong";
     public static final String GAME_VERSION = "1.0.1";
