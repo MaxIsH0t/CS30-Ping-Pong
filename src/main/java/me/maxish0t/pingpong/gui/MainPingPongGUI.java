@@ -32,7 +32,6 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     private int           padH  = 10, padW = 100, bottomPadX, topPadX, inset = 10;
     public static boolean isGameReset = false;
     private boolean       shouldMoveBall = false;
-    private boolean       isBGWhite, isBGBlack;
     private int           scoreTop, scoreBottom;
     public static int     mouseX, mouseY;
     public static int     height, width;
@@ -43,10 +42,10 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     /**
      * Lists & Arrays
      */
-    private HashSet<String> keys = new HashSet<String>();
-    private Timer   t = new Timer(5, this);
+    private HashSet<String>          keys = new HashSet<String>();
+    private Timer                    timer = new Timer(5, this);
     private ArrayList<NightSkyBalls> balls = new ArrayList<>();
-    private Random rnd = new Random();
+    private Random                   rnd = new Random();
 
     /**
      * Random R G P color ints for the random colors.
@@ -59,7 +58,6 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
      * Frame Constructor
      */
     public MainPingPongGUI() {
-        isBGBlack = true;
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
@@ -79,8 +77,8 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
         BorderAlgorithm.drawBorder(BORDER);
 
         first = true;
-        t.setInitialDelay(100);
-        t.start();
+        timer.setInitialDelay(100);
+        timer.start();
 
         // spawns 60 random night sky balls at a random position
         for (int i = 0; i < 60; i++) {
