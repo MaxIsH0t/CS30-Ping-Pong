@@ -38,6 +38,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
     private final int     SPEED = 4;
     private boolean       first;
     private boolean       hasPlayedMenu = false;
+    private boolean       debug = false;
 
     /**
      * Lists & Arrays
@@ -134,7 +135,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
             g2d.draw(ball.getEllipse());
         }
 
-        if(VariablesGUI.timer >= 0) {
+        if(VariablesGUI.timer >= 0 && !debug) {
             VariablesGUI.timer--;
             RenderTextTypeBox.jTextField.setVisible(false);
             DrawUtils.drawRectangle(0, 0, width, height, Color.GRAY, g);
@@ -161,7 +162,7 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
                 VariablesGUI.fade += 0.03F;
             }
         } else {
-            if (!hasPlayedMenu) {
+            if (!hasPlayedMenu && !debug) {
                 String string = "How to play?";
                 String string2 = "- You use the left and right keys on the keyboard.";
 
@@ -247,7 +248,12 @@ public class MainPingPongGUI extends JPanel implements KeyListener, ActionListen
                 if (isGameReset == true) {
                     TextUtils.drawText("Press the button to reset the ball.", width / 2, 150 * 2, 40, Color.WHITE, g);
                 }
-            }        }
+
+                //Fireworks fireworks = new Fireworks(100, 100, 40, Color.WHITE);
+                //fireworks.drawFireworks(g);
+                //fireworks.moveFireworks();
+            }
+        }
     }
 
     @Override
